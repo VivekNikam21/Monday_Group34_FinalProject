@@ -4,10 +4,24 @@
  */
 package model.PreHealthcareManagement;
 
+import java.util.ArrayList;
+import model.Personnel.Person;
+
 /**
  *
  * @author nikam
  */
 public class EducatorDirectory {
+    ArrayList<EducatorProfile> educatorlist;
+     
+     public EducatorDirectory(){
+         educatorlist = new ArrayList<EducatorProfile>();
+     }
     
+     public EducatorProfile addEducatorProfile(Person p){
+         
+         EducatorProfile ep = new EducatorProfile();
+         educatorlist.add(ep);
+         return ep;
+     }   
 }

@@ -4,10 +4,24 @@
  */
 package model.PreHealthcareManagement;
 
+import java.util.ArrayList;
+import model.Personnel.Person;
+
 /**
  *
  * @author nikam
  */
 public class NutritionistDirectory {
+    ArrayList<NutritionistProfile> nutritionistlist;
+     
+     public NutritionistDirectory(){
+         nutritionistlist = new ArrayList<NutritionistProfile>();
+     }
     
+     public NutritionistProfile addNutritionistProfile(Person p){
+         
+         NutritionistProfile np = new NutritionistProfile();
+         nutritionistlist.add(np);
+         return np;
+     }   
 }
