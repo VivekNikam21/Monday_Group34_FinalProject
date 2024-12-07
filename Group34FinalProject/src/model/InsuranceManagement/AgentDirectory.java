@@ -4,10 +4,26 @@
  */
 package model.InsuranceManagement;
 
+import java.util.ArrayList;
+import model.InnovationManagement.SpecialistProfile;
+import model.Personnel.Person;
+
 /**
  *
  * @author nikam
  */
 public class AgentDirectory {
     
+     ArrayList<AgentProfile> agentlist;
+     
+     public AgentDirectory(){
+         agentlist = new ArrayList<AgentProfile>();
+     }
+    
+     public AgentProfile addAgentProfile(Person p){
+         
+         AgentProfile ap = new AgentProfile();
+         agentlist.add(ap);
+         return ap;
+     }   
 }

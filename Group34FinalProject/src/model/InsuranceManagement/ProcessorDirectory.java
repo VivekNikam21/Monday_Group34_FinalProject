@@ -4,10 +4,25 @@
  */
 package model.InsuranceManagement;
 
+import java.util.ArrayList;
+import model.Personnel.Person;
+
 /**
  *
  * @author nikam
  */
 public class ProcessorDirectory {
     
+    ArrayList<ProcessorProfile> processorlist;
+     
+     public ProcessorDirectory(){
+         processorlist = new ArrayList<ProcessorProfile>();
+     }
+    
+     public ProcessorProfile addProcessorProfile(Person p){
+         
+         ProcessorProfile pp = new ProcessorProfile();
+         processorlist.add(pp);
+         return pp;
+     }   
 }
