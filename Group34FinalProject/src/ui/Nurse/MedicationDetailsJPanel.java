@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Researcher;
+package ui.Nurse;
 
 /**
  *
  * @author Dell
  */
-public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
+public class MedicationDetailsJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ResearcherWorkAreaJPanel
+     * Creates new form MedicationDetailsJPanel
      */
-    public ResearcherWorkAreaJPanel() {
+    public MedicationDetailsJPanel() {
         initComponents();
     }
 
@@ -26,35 +26,19 @@ public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblResearcher = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(0, 102, 102));
-
-        lblResearcher.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblResearcher.setForeground(new java.awt.Color(255, 255, 255));
-        lblResearcher.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblResearcher.setText("RESEARCHER");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lblResearcher, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lblResearcher, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(418, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblResearcher;
     // End of variables declaration//GEN-END:variables
 }
