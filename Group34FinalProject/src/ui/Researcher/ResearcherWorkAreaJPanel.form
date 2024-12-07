@@ -24,7 +24,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="lblResearcher" min="-2" pref="684" max="-2" attributes="0"/>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace pref="49" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -33,7 +33,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="lblResearcher" min="-2" pref="28" max="-2" attributes="0"/>
-              <EmptySpace pref="420" max="32767" attributes="0"/>
+              <EmptySpace pref="418" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
