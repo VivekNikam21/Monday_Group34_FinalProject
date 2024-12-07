@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Therapist;
+package ui.Nutritionist;
 
 /**
  *
- * @author Dell
+ * @author Reva
  */
-public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
+public class NutritionistWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form TherapistWorkAreaJpanel
+     * Creates new form NutritionistWorkAreaJPanel
      */
-    public TherapistWorkAreaJpanel() {
+    public NutritionistWorkAreaJPanel() {
         initComponents();
     }
 
@@ -26,36 +26,19 @@ public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTherapist = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(0, 102, 102));
-
-        lblTherapist.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblTherapist.setForeground(new java.awt.Color(255, 255, 255));
-        lblTherapist.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTherapist.setText("THERAPIST");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(lblTherapist, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lblTherapist, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-
-                .addContainerGap(419, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblTherapist;
     // End of variables declaration//GEN-END:variables
 }
