@@ -4,21 +4,15 @@
  */
 package ui.Educator;
 
-<<<<<<< HEAD
 import javax.swing.JPanel;
 import model.Business;
 import model.InnovationManagement.SpecialistProfile;
 import model.PreHealthcareManagement.EducatorProfile;
-
-=======
->>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
 /**
  *
  * @author Reva
  */
 public class EducatorWorkAreaJPanel extends javax.swing.JPanel {
-
-<<<<<<< HEAD
     JPanel WorkArea;
     Business business;
     EducatorProfile educator;
@@ -29,12 +23,6 @@ public class EducatorWorkAreaJPanel extends javax.swing.JPanel {
         business = b;
         this.WorkArea = ejp;
         educator = ep;
-=======
-    /**
-     * Creates new form EducatorWorkAreaJPanel
-     */
-    public EducatorWorkAreaJPanel() {
->>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
         initComponents();
     }
 

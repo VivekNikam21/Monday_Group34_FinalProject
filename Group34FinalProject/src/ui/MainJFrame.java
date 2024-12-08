@@ -22,14 +22,11 @@ import ui.Agent.AgentWorkAreaJPanel;
 import ui.Coach.CoachWorkAreaJPanel;
 import ui.Educator.EducatorWorkAreaJPanel;
 import ui.Nurse.NurseWorkAreaJpanel;  
-<<<<<<< HEAD
 import ui.Nutritionist.NutritionistWorkAreaJPanel;
 import ui.Processor.ProcessorWorkAreaJPanel;
 import ui.Researcher.ResearcherWorkAreaJPanel;
 import ui.Specialist.SpecialistWorkAreaJPanel;
-import ui.Therapist.TherapistWorkAreaJpanel;
-=======
->>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
+import ui.Therapist.TherapistWorkAreaJPanel;
 
 /**
  *
@@ -171,11 +168,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         }
         
-        TherapistWorkAreaJpanel therapistworkarea;
+        TherapistWorkAreaJPanel therapistworkarea;
         if (profile instanceof TherapistProfile) {
 
             TherapistProfile tp = (TherapistProfile) profile;
-            therapistworkarea = new TherapistWorkAreaJpanel(business, tp, userProcessContainer);
+            therapistworkarea = new TherapistWorkAreaJPanel (business, tp, userProcessContainer);
             userProcessContainer.removeAll();
             userProcessContainer.add("Therapist", therapistworkarea);
             ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);

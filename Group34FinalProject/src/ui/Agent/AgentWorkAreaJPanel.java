@@ -4,20 +4,16 @@
  */
 package ui.Agent;
 
-<<<<<<< HEAD
 import javax.swing.JPanel;
 import model.Business;
 import model.InnovationManagement.SpecialistProfile;
 import model.InsuranceManagement.AgentProfile;
 
-=======
->>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
 /**
  *
  * @author Dell
  */
 public class AgentWorkAreaJPanel extends javax.swing.JPanel {
-<<<<<<< HEAD
     JPanel WorkArea;
     Business business;
     AgentProfile agent;
@@ -28,13 +24,6 @@ public class AgentWorkAreaJPanel extends javax.swing.JPanel {
         business = b;
         this.WorkArea = ajp;
         agent = ap;
-=======
-
-    /**
-     * Creates new form AgentWorkAreaJPanel
-     */
-    public AgentWorkAreaJPanel() {
->>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
         initComponents();
     }
 

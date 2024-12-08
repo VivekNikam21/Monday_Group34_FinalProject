@@ -13,7 +13,7 @@ import model.ClinicManagement.TherapistProfile;
  *
  * @author Dell
  */
-public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
+public class TherapistWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel WorkArea;
     Business business;
@@ -21,7 +21,7 @@ public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
     /**
      * Creates new form TherapistWorkAreaJpanel
      */
-    public TherapistWorkAreaJpanel(Business b, TherapistProfile tp, JPanel tjp) {
+    public TherapistWorkAreaJPanel(Business b, TherapistProfile tp, JPanel tjp) {
         business = b;
         this.WorkArea = tjp;
         therapist = tp;
