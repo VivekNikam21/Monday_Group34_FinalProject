@@ -4,16 +4,38 @@
  */
 package ui.Nutritionist;
 
+<<<<<<< HEAD
+import javax.swing.JPanel;
+import model.Business;
+import model.InnovationManagement.SpecialistProfile;
+import model.PreHealthcareManagement.NutritionistProfile;
+
+=======
+>>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
 /**
  *
  * @author Reva
  */
 public class NutritionistWorkAreaJPanel extends javax.swing.JPanel {
+<<<<<<< HEAD
+    
+    JPanel WorkArea;
+    Business business;
+    NutritionistProfile nutritionist;
+    /**
+     * Creates new form NutritionistWorkAreaJPanel
+     */
+    public NutritionistWorkAreaJPanel(Business b, NutritionistProfile np, JPanel njp) {
+        business = b;
+        this.WorkArea = njp;
+        nutritionist = np;
+=======
 
     /**
      * Creates new form NutritionistWorkAreaJPanel
      */
     public NutritionistWorkAreaJPanel() {
+>>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
         initComponents();
     }
 

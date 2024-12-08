@@ -4,16 +4,38 @@
  */
 package ui.Coach;
 
+<<<<<<< HEAD
+import javax.swing.JPanel;
+import model.Business;
+import model.InnovationManagement.SpecialistProfile;
+import model.PreHealthcareManagement.CoachProfile;
+
+=======
+>>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
 /**
  *
  * @author Reva
  */
 public class CoachWorkAreaJPanel extends javax.swing.JPanel {
+<<<<<<< HEAD
+    
+    JPanel WorkArea;
+    Business business;
+    CoachProfile coach;
+    /**
+     * Creates new form CoachWorkAreaJPanel
+     */
+    public CoachWorkAreaJPanel(Business b, CoachProfile cp, JPanel cjp) {
+        business = b;
+        this.WorkArea = cjp;
+        coach = cp;
+=======
 
     /**
      * Creates new form CoachWorkAreaJPanel
      */
     public CoachWorkAreaJPanel() {
+>>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
         initComponents();
     }
 

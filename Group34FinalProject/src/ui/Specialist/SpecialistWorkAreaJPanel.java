@@ -4,16 +4,38 @@
  */
 package ui.Specialist;
 
+<<<<<<< HEAD
+import javax.swing.JPanel;
+import model.Business;
+import model.ClinicManagement.TherapistProfile;
+import model.InnovationManagement.SpecialistProfile;
+
+=======
+>>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
 /**
  *
  * @author Dell
  */
 public class SpecialistWorkAreaJPanel extends javax.swing.JPanel {
+<<<<<<< HEAD
+    
+    JPanel WorkArea;
+    Business business;
+    SpecialistProfile specialist;
+    /**
+     * Creates new form SpecialistWorkAreaJPanel
+     */
+    public SpecialistWorkAreaJPanel(Business b, SpecialistProfile sp, JPanel sjp) {
+        business = b;
+        this.WorkArea = sjp;
+        specialist = sp;
+=======
 
     /**
      * Creates new form SpecialistWorkAreaJPanel
      */
     public SpecialistWorkAreaJPanel() {
+>>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
         initComponents();
     }
 

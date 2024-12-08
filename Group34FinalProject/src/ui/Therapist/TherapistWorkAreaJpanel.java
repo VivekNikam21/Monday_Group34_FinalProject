@@ -4,16 +4,27 @@
  */
 package ui.Therapist;
 
+import javax.swing.JPanel;
+import model.Business;
+import model.ClinicManagement.NurseProfile;
+import model.ClinicManagement.TherapistProfile;
+
 /**
  *
  * @author Dell
  */
 public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
-
+    
+    JPanel WorkArea;
+    Business business;
+    TherapistProfile therapist;
     /**
      * Creates new form TherapistWorkAreaJpanel
      */
-    public TherapistWorkAreaJpanel() {
+    public TherapistWorkAreaJpanel(Business b, TherapistProfile tp, JPanel tjp) {
+        business = b;
+        this.WorkArea = tjp;
+        therapist = tp;
         initComponents();
     }
 

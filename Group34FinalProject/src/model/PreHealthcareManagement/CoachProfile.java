@@ -4,10 +4,21 @@
  */
 package model.PreHealthcareManagement;
 
+import model.Personnel.Person;
+import model.Personnel.Profile;
+
 /**
  *
  * @author nikam
  */
-public class CoachProfile {
+public class CoachProfile extends Profile{
     
+    public CoachProfile (Person p){
+        super(p);
+    }
+    
+    @Override
+    public String getRole() {
+        return "Coach"; // Implements the abstract method
+    }
 }
