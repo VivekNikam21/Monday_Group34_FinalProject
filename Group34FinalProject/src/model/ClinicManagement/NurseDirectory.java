@@ -22,7 +22,7 @@ public class NurseDirectory {
     
      public NurseProfile addNurseProfile(Person p){
          
-         NurseProfile np = new NurseProfile();
+         NurseProfile np = new NurseProfile(p);
          nurselist.add(np);
          return np;
      }

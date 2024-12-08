@@ -4,16 +4,26 @@
  */
 package ui.Nurse;
 
+
+import javax.swing.JPanel;
+import model.Business;
+import model.ClinicManagement.NurseProfile;
+
 /**
  *
  * @author Dell
  */
 public class NurseWorkAreaJpanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
+    NurseProfile nurse;
     /**
      * Creates new form NurseWorkAreaJpanel
      */
-    public NurseWorkAreaJpanel() {
+    public NurseWorkAreaJpanel(Business b, NurseProfile np, JPanel njp) {
+        business = b;
+        this.WorkArea = njp;
+        nurse = np;
         initComponents();
     }
 
