@@ -21,14 +21,14 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="lblNurse" alignment="0" max="32767" attributes="0"/>
+          <Component id="lblCoach" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
-                      <Component id="btnMedication" min="-2" pref="295" max="-2" attributes="0"/>
+                      <Component id="btnProgramManagement" min="-2" pref="295" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="317" max="-2" attributes="0"/>
-                      <Component id="btnProgress" min="-2" pref="295" max="-2" attributes="0"/>
+                      <Component id="btnHealthProgress" min="-2" pref="295" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
@@ -43,11 +43,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Component id="lblNurse" min="-2" pref="77" max="-2" attributes="0"/>
+              <Component id="lblCoach" min="-2" pref="77" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnProgress" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
-                  <Component id="btnMedication" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
+                  <Component id="btnHealthProgress" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
+                  <Component id="btnProgramManagement" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="857" max="32767" attributes="0"/>
               <Component id="btnBack" min="-2" pref="57" max="-2" attributes="0"/>
@@ -57,7 +57,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblNurse">
+    <Component class="javax.swing.JLabel" name="lblCoach">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
@@ -72,7 +72,7 @@
         <Property name="text" type="java.lang.String" value="COACH"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnProgress">
+    <Component class="javax.swing.JButton" name="btnHealthProgress">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
@@ -83,7 +83,7 @@
         <Property name="text" type="java.lang.String" value="Program Management"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnMedication">
+    <Component class="javax.swing.JButton" name="btnProgramManagement">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
