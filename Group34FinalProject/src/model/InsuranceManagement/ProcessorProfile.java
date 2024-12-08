@@ -4,10 +4,20 @@
  */
 package model.InsuranceManagement;
 
+import model.Personnel.Person;
+import model.Personnel.Profile;
+
 /**
  *
  * @author nikam
  */
-public class ProcessorProfile {
+public class ProcessorProfile extends Profile {
+    public ProcessorProfile (Person p){
+        super(p);
+    }
     
+    @Override
+    public String getRole() {
+        return "Processor"; // Implements the abstract method
+    }
 }

@@ -4,16 +4,27 @@
  */
 package ui.Researcher;
 
+import javax.swing.JPanel;
+import model.Business;
+import model.ClinicManagement.NurseProfile;
+import model.InnovationManagement.ResearcherProfile;
+
 /**
  *
  * @author Dell
  */
 public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
-
+    
+    JPanel WorkArea;
+    Business business;
+    ResearcherProfile researcher;
     /**
      * Creates new form ResearcherWorkAreaJPanel
      */
-    public ResearcherWorkAreaJPanel() {
+    public ResearcherWorkAreaJPanel(Business b, ResearcherProfile rp, JPanel rjp) {
+        business = b;
+        this.WorkArea = rjp;
+        researcher = rp;
         initComponents();
     }
 
@@ -42,14 +53,14 @@ public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(lblResearcher, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(lblResearcher, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

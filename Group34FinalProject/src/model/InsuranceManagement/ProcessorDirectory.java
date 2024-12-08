@@ -21,7 +21,7 @@ public class ProcessorDirectory {
     
      public ProcessorProfile addProcessorProfile(Person p){
          
-         ProcessorProfile pp = new ProcessorProfile();
+         ProcessorProfile pp = new ProcessorProfile(p);
          processorlist.add(pp);
          return pp;
      }   

@@ -20,7 +20,7 @@ public class EducatorDirectory {
     
      public EducatorProfile addEducatorProfile(Person p){
          
-         EducatorProfile ep = new EducatorProfile();
+         EducatorProfile ep = new EducatorProfile(p);
          educatorlist.add(ep);
          return ep;
      }   
