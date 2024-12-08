@@ -4,17 +4,26 @@
  */
 package ui;
 
+
+import model.Business;
+import model.ClinicManagement.NurseProfile;
+import model.Personnel.Profile;
+import model.UserAccountManagement.UserAccount;
+import model.UserAccountManagement.UserAccountDirectory;
+import ui.Nurse.NurseWorkAreaJpanel;  
+
 /**
  *
  * @author Dell
  */
 public class MainJFrame extends javax.swing.JFrame {
-
+    Business business;
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
         initComponents();
+        business = ConfigureABusiness.initialize();
     }
 
     /**
@@ -31,7 +40,7 @@ public class MainJFrame extends javax.swing.JFrame {
         lblUsername = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
-        txtLogin1 = new javax.swing.JTextField();
+        txtUser = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         userProcessContainer = new javax.swing.JPanel();
 
@@ -54,12 +63,17 @@ public class MainJFrame extends javax.swing.JFrame {
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPassword.setText("Password");
 
-        txtLogin1.setBackground(new java.awt.Color(204, 255, 255));
-        txtLogin1.setForeground(new java.awt.Color(0, 102, 102));
+        txtUser.setBackground(new java.awt.Color(204, 255, 255));
+        txtUser.setForeground(new java.awt.Color(0, 102, 102));
 
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(0, 102, 102));
         btnLogin.setText("L O G I N");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
@@ -70,7 +84,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPassword)
                     .addComponent(lblPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtLogin1)
+                    .addComponent(txtUser)
                     .addGroup(workAreaLayout.createSequentialGroup()
                         .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -83,7 +97,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(117, 117, 117)
                 .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -114,6 +128,30 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        String un = txtUser.getText();
+        String pw = txtPassword.getText();
+
+        UserAccountDirectory uad = business.getUserAccountDirectory();
+        UserAccount useraccount = uad.AuthenticateUser(un, pw);
+        Profile profile = useraccount.getAssociatedPersonProfile();
+        if (useraccount == null) {
+            return;
+        }
+        NurseWorkAreaJpanel nurseworkarea;
+
+        if (profile instanceof NurseProfile) {
+
+            NurseProfile np = (NurseProfile) profile;
+            nurseworkarea = new NurseWorkAreaJpanel(business, np, userProcessContainer);
+           userProcessContainer.removeAll();
+            userProcessContainer.add("Nurse", nurseworkarea);
+            ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
+
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,8 +193,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JSplitPane splitPane;
-    private javax.swing.JTextField txtLogin1;
     private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtUser;
     private javax.swing.JPanel userProcessContainer;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables

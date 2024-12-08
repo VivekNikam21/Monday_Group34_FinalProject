@@ -2,28 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Nurse;
-
-
-import javax.swing.JPanel;
-import model.Business;
-import model.ClinicManagement.NurseProfile;
+package ui.Processor;
 
 /**
  *
- * @author Dell
+ * @author Reva
  */
-public class NurseWorkAreaJpanel extends javax.swing.JPanel {
-    JPanel WorkArea;
-    Business business;
-    NurseProfile nurse;
+public class ProcessorWorkAreaJPanel extends javax.swing.JPanel {
+
     /**
-     * Creates new form NurseWorkAreaJpanel
+     * Creates new form ProcessorWorkAreaJPanel
      */
-    public NurseWorkAreaJpanel(Business b, NurseProfile np, JPanel njp) {
-        business = b;
-        this.WorkArea = njp;
-        nurse = np;
+    public ProcessorWorkAreaJPanel() {
         initComponents();
     }
 
@@ -37,8 +27,8 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
     private void initComponents() {
 
         lblNurse = new javax.swing.JLabel();
-        btnMedication = new javax.swing.JButton();
         btnProgress = new javax.swing.JButton();
+        btnMedication = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
@@ -46,16 +36,16 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
         lblNurse.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lblNurse.setForeground(new java.awt.Color(255, 255, 255));
         lblNurse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNurse.setText("NURSE");
-
-        btnMedication.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnMedication.setForeground(new java.awt.Color(0, 102, 102));
-        btnMedication.setText("Medication Details");
-        btnMedication.setMaximumSize(new java.awt.Dimension(280, 50));
+        lblNurse.setText("PROCESSOR");
 
         btnProgress.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnProgress.setForeground(new java.awt.Color(0, 102, 102));
-        btnProgress.setText("Progress Report ");
+        btnProgress.setText("Documents");
+
+        btnMedication.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnMedication.setForeground(new java.awt.Color(0, 102, 102));
+        btnMedication.setText("Claim Management");
+        btnMedication.setMaximumSize(new java.awt.Dimension(280, 50));
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -77,7 +67,7 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(710, Short.MAX_VALUE))
+                .addContainerGap(914, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +78,7 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMedication, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 635, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 655, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
