@@ -21,7 +21,7 @@ public class CoachDirectory {
     
      public CoachProfile addCoachProfile(Person p){
          
-         CoachProfile cp = new CoachProfile();
+         CoachProfile cp = new CoachProfile(p);
          coachlist.add(cp);
          return cp;
      }   

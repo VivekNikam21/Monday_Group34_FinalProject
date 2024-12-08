@@ -4,16 +4,27 @@
  */
 package ui.Nutritionist;
 
+import javax.swing.JPanel;
+import model.Business;
+import model.InnovationManagement.SpecialistProfile;
+import model.PreHealthcareManagement.NutritionistProfile;
+
+
 /**
  *
  * @author Reva
  */
 public class NutritionistWorkAreaJPanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
+    NutritionistProfile nutritionist;
     /**
      * Creates new form NutritionistWorkAreaJPanel
      */
-    public NutritionistWorkAreaJPanel() {
+    public NutritionistWorkAreaJPanel(Business b, NutritionistProfile np, JPanel njp) {
+        business = b;
+        this.WorkArea = njp;
+        nutritionist = np;
         initComponents();
     }
 
@@ -27,9 +38,9 @@ public class NutritionistWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnBack = new javax.swing.JButton();
-        btnMedication = new javax.swing.JButton();
-        btnProgress = new javax.swing.JButton();
-        lblNurse = new javax.swing.JLabel();
+        btnMealPlan = new javax.swing.JButton();
+        btnRecipeLibrary = new javax.swing.JButton();
+        lblNutritionist = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -38,32 +49,32 @@ public class NutritionistWorkAreaJPanel extends javax.swing.JPanel {
         btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("B A C K");
 
-        btnMedication.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnMedication.setForeground(new java.awt.Color(0, 102, 102));
-        btnMedication.setText("Meal Plan");
-        btnMedication.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnMealPlan.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnMealPlan.setForeground(new java.awt.Color(0, 102, 102));
+        btnMealPlan.setText("Meal Plan");
+        btnMealPlan.setMaximumSize(new java.awt.Dimension(280, 50));
 
-        btnProgress.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnProgress.setForeground(new java.awt.Color(0, 102, 102));
-        btnProgress.setText("Recipe Library");
+        btnRecipeLibrary.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnRecipeLibrary.setForeground(new java.awt.Color(0, 102, 102));
+        btnRecipeLibrary.setText("Recipe Library");
 
-        lblNurse.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        lblNurse.setForeground(new java.awt.Color(255, 255, 255));
-        lblNurse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNurse.setText("NUTRITIONIST");
+        lblNutritionist.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblNutritionist.setForeground(new java.awt.Color(255, 255, 255));
+        lblNutritionist.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNutritionist.setText("NUTRITIONIST");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblNurse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblNutritionist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(303, 303, 303)
-                        .addComponent(btnMedication, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMealPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(317, 317, 317)
-                        .addComponent(btnProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRecipeLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -73,11 +84,11 @@ public class NutritionistWorkAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(lblNurse, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblNutritionist, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMedication, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRecipeLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMealPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
@@ -87,8 +98,8 @@ public class NutritionistWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnMedication;
-    private javax.swing.JButton btnProgress;
-    private javax.swing.JLabel lblNurse;
+    private javax.swing.JButton btnMealPlan;
+    private javax.swing.JButton btnRecipeLibrary;
+    private javax.swing.JLabel lblNutritionist;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,7 +21,7 @@ public class ResearcherDirectory {
     
      public ResearcherProfile addResearcherProfile(Person p){
          
-         ResearcherProfile rp = new ResearcherProfile();
+         ResearcherProfile rp = new ResearcherProfile(p);
          researcherlist.add(rp);
          return rp;
      }

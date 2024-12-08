@@ -4,16 +4,26 @@
  */
 package ui.Agent;
 
+import javax.swing.JPanel;
+import model.Business;
+import model.InnovationManagement.SpecialistProfile;
+import model.InsuranceManagement.AgentProfile;
+
 /**
  *
  * @author Dell
  */
 public class AgentWorkAreaJPanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
+    AgentProfile agent;
     /**
      * Creates new form AgentWorkAreaJPanel
      */
-    public AgentWorkAreaJPanel() {
+    public AgentWorkAreaJPanel(Business b, AgentProfile ap, JPanel ajp) {
+        business = b;
+        this.WorkArea = ajp;
+        agent = ap;
         initComponents();
     }
 
