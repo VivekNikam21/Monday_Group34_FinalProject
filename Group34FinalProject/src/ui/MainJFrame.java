@@ -22,11 +22,14 @@ import ui.Agent.AgentWorkAreaJPanel;
 import ui.Coach.CoachWorkAreaJPanel;
 import ui.Educator.EducatorWorkAreaJPanel;
 import ui.Nurse.NurseWorkAreaJpanel;  
+<<<<<<< HEAD
 import ui.Nutritionist.NutritionistWorkAreaJPanel;
 import ui.Processor.ProcessorWorkAreaJPanel;
 import ui.Researcher.ResearcherWorkAreaJPanel;
 import ui.Specialist.SpecialistWorkAreaJPanel;
 import ui.Therapist.TherapistWorkAreaJpanel;
+=======
+>>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
 
 /**
  *

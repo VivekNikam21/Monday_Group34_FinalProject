@@ -4,17 +4,21 @@
  */
 package ui.Processor;
 
+<<<<<<< HEAD
 import javax.swing.JPanel;
 import model.Business;
 import model.InnovationManagement.SpecialistProfile;
 import model.InsuranceManagement.ProcessorProfile;
 
+=======
+>>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
 /**
  *
  * @author Reva
  */
 public class ProcessorWorkAreaJPanel extends javax.swing.JPanel {
 
+<<<<<<< HEAD
     JPanel WorkArea;
     Business business;
     ProcessorProfile processor;
@@ -26,6 +30,12 @@ public class ProcessorWorkAreaJPanel extends javax.swing.JPanel {
         this.WorkArea = pjp;
         processor = pp;
         
+=======
+    /**
+     * Creates new form ProcessorWorkAreaJPanel
+     */
+    public ProcessorWorkAreaJPanel() {
+>>>>>>> 2ba083150d082e3831f704026783b8c05b0a0984
         initComponents();
     }
 
