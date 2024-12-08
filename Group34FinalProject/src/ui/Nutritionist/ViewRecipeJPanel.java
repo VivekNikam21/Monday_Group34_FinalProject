@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Processor;
+package ui.Nutritionist;
 
 /**
  *
  * @author Reva
  */
-public class ViewClaimJPanel extends javax.swing.JPanel {
+public class ViewRecipeJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ViewClaimJPanel
+     * Creates new form ViewRecipeJPanel
      */
-    public ViewClaimJPanel() {
+    public ViewRecipeJPanel() {
         initComponents();
     }
 
@@ -26,11 +26,8 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblName1 = new javax.swing.JLabel();
         txtName3 = new javax.swing.JTextField();
-        txtName2 = new javax.swing.JTextField();
         lblName3 = new javax.swing.JLabel();
-        lblName2 = new javax.swing.JLabel();
         txtName4 = new javax.swing.JTextField();
         lblProcess = new javax.swing.JLabel();
         lblName4 = new javax.swing.JLabel();
@@ -39,13 +36,11 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
         btnView1 = new javax.swing.JButton();
         lblName = new javax.swing.JLabel();
         txtName1 = new javax.swing.JTextField();
-        txtName5 = new javax.swing.JTextField();
-        lblName5 = new javax.swing.JLabel();
+        lblName1 = new javax.swing.JLabel();
+        txtName2 = new javax.swing.JTextField();
+        lblName2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
-
-        lblName1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblName1.setText("Name");
 
         txtName3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,17 +48,8 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtName2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtName2ActionPerformed(evt);
-            }
-        });
-
         lblName3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblName3.setText("Amount");
-
-        lblName2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblName2.setText("Policy Number");
+        lblName3.setText("Ingredients");
 
         txtName4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,10 +60,10 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
         lblProcess.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lblProcess.setForeground(new java.awt.Color(255, 255, 255));
         lblProcess.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblProcess.setText("View Claim");
+        lblProcess.setText("View Health Progress");
 
         lblName4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblName4.setText("Reason");
+        lblName4.setText("Details");
 
         btnView.setBackground(new java.awt.Color(204, 255, 255));
         btnView.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -106,7 +92,7 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
         });
 
         lblName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblName.setText("Claim ID");
+        lblName.setText("Name");
 
         txtName1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,14 +100,17 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtName5.addActionListener(new java.awt.event.ActionListener() {
+        lblName1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblName1.setText("Category");
+
+        txtName2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtName5ActionPerformed(evt);
+                txtName2ActionPerformed(evt);
             }
         });
 
-        lblName5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblName5.setText("Status");
+        lblName2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblName2.setText("Nutritional Information");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -133,48 +122,43 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(lblProcess, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(469, 469, 469)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(541, 541, 541)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblName4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtName4, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblName3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtName3, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblName1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblName)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblName2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblName5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtName5, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblName4)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtName4, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(586, 586, 586)
-                                .addComponent(btnView1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 977, Short.MAX_VALUE)))
+                                .addComponent(lblName3)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtName3, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblName1)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblName)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblName2)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 936, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(568, 568, 568)
+                .addComponent(btnView1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(lblProcess, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -194,25 +178,17 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtName4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblName5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
+                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnView1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(501, Short.MAX_VALUE))
+                .addContainerGap(492, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtName3ActionPerformed
-
-    private void txtName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtName2ActionPerformed
 
     private void txtName4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName4ActionPerformed
         // TODO add your handling code here:
@@ -234,9 +210,9 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtName1ActionPerformed
 
-    private void txtName5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName5ActionPerformed
+    private void txtName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtName5ActionPerformed
+    }//GEN-LAST:event_txtName2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -247,13 +223,11 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblName2;
     private javax.swing.JLabel lblName3;
     private javax.swing.JLabel lblName4;
-    private javax.swing.JLabel lblName5;
     private javax.swing.JLabel lblProcess;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtName1;
     private javax.swing.JTextField txtName2;
     private javax.swing.JTextField txtName3;
     private javax.swing.JTextField txtName4;
-    private javax.swing.JTextField txtName5;
     // End of variables declaration//GEN-END:variables
 }
