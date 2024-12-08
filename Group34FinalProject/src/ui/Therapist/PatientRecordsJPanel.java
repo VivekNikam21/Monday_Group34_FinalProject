@@ -4,17 +4,32 @@
  */
 package ui.Therapist;
 
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Business;
+import model.ClinicManagement.Patient;
+import model.ClinicManagement.PatientManagement;
+import model.ClinicManagement.Therapist;
+import model.ClinicManagement.TherapistProfile;
 /**
  *
  * @author Dell
  */
 public class PatientRecordsJPanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
+    Therapist selectedtherapist;
+    Patient patient;
     /**
      * Creates new form PatientRecordsJPanel
      */
-    public PatientRecordsJPanel() {
+    public PatientRecordsJPanel(Business bu, JPanel jp) {
+        WorkArea = jp;
+        this.business = bu;
         initComponents();
+        initializeTable();
     }
 
     /**
@@ -26,19 +41,187 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblPatientRecords = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPatientRecords = new javax.swing.JTable();
+        btnViewDetails = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        ComboBox = new javax.swing.JComboBox<>();
+
+        setBackground(new java.awt.Color(0, 102, 102));
+
+        lblPatientRecords.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblPatientRecords.setForeground(new java.awt.Color(255, 255, 255));
+        lblPatientRecords.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPatientRecords.setText("Patient Records");
+
+        tblPatientRecords.setForeground(new java.awt.Color(0, 102, 102));
+        tblPatientRecords.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Patient ID", "Name", "Age", "Email ID", "Contact Number"
+            }
+        ));
+        tblPatientRecords.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(tblPatientRecords);
+
+        btnViewDetails.setBackground(new java.awt.Color(204, 255, 255));
+        btnViewDetails.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnViewDetails.setForeground(new java.awt.Color(0, 102, 102));
+        btnViewDetails.setText("View Details");
+
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
+        btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(lblPatientRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 1112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(411, 411, 411)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(411, 411, 411)
+                        .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(575, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblPatientRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(btnViewDetails)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 479, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
     }// </editor-fold>//GEN-END:initComponents
+    public void initializeTable() {
 
+//clear patient table
+       ComboBox.removeAllItems();
+
+        int rc = tblPatientRecords.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblPatientRecords.getModel()).removeRow(i);
+        }
+//load therapist to the combobox
+
+        
+        ArrayList<Therapist> therapistlist= business.getTherapistDirectory().getTherapistList();
+
+        if (therapistlist.isEmpty()) {
+            return;
+        }
+        for (Therapist tp : therapistlist) {
+        ComboBox.addItem(tp.toString());
+    }
+        
+         ComboBox.setSelectedIndex(0);
+    String therapistName = (String) ComboBox.getSelectedItem();
+        
+    if (selectedtherapist == null) {
+        // Handle the case where the therapist is not found
+        return;
+    }
+        
+    PatientManagement pm = selectedtherapist.getPatientManagement();
+            for (Patient pt : pm.getPatientList()) {
+
+                Object[] row = new Object[5];
+                row[0] = pt.getId();
+                row[1] = pt.getName();
+                row[2] = pt.getAge();
+                row[3] = pt.getEmailid();
+                row[4] = pt.getContact();
+                ((DefaultTableModel) tblPatientRecords.getModel()).addRow(row);
+            }
+
+        }
+    
+    
+    public void refreshTable() {
+
+//clear supplier table
+        int rc = tblPatientRecords.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblPatientRecords.getModel()).removeRow(i);
+        }
+
+        String therapistname = (String) ComboBox.getSelectedItem();
+
+        selectedtherapist = business.getTherapistDirectory().findTherapist(therapistname);
+        if (selectedtherapist == null) {
+            return;
+        }
+        PatientManagement pm = selectedtherapist.getPatientManagement();
+
+        for (Patient pt : pm.getPatientList()) {
+
+            Object[] row = new Object[5];
+                row[0] = pt;
+                row[1] = pt.getName();
+                row[2] = pt.getAge();
+                row[3] = pt.getEmailid();
+                row[4] = pt.getContact();
+            ((DefaultTableModel) tblPatientRecords.getModel()).addRow(row);
+        }
+
+    }
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxActionPerformed
+        // TODO add your handling code here:
+        refreshTable();
+    }//GEN-LAST:event_ComboBoxActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnViewDetails;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPatientRecords;
+    private javax.swing.JTable tblPatientRecords;
     // End of variables declaration//GEN-END:variables
 }
