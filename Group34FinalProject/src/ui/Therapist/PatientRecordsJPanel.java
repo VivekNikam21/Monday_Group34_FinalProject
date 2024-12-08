@@ -26,19 +26,71 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblPatientRecords = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPatientRecords = new javax.swing.JTable();
+        btnViewDetails = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(0, 102, 102));
+
+        lblPatientRecords.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblPatientRecords.setForeground(new java.awt.Color(255, 255, 255));
+        lblPatientRecords.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPatientRecords.setText("Patient Records");
+
+        tblPatientRecords.setForeground(new java.awt.Color(0, 102, 102));
+        tblPatientRecords.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Patient ID", "Name", "Age", "Email ID", "Contact Number"
+            }
+        ));
+        tblPatientRecords.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(tblPatientRecords);
+
+        btnViewDetails.setBackground(new java.awt.Color(204, 255, 255));
+        btnViewDetails.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnViewDetails.setForeground(new java.awt.Color(0, 102, 102));
+        btnViewDetails.setText("View Details");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(411, 411, 411)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(lblPatientRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 1112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(575, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblPatientRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(btnViewDetails)
+                .addContainerGap(566, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnViewDetails;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPatientRecords;
+    private javax.swing.JTable tblPatientRecords;
     // End of variables declaration//GEN-END:variables
 }
