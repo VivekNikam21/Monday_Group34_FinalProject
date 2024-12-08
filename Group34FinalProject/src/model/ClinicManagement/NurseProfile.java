@@ -4,10 +4,22 @@
  */
 package model.ClinicManagement;
 
+import java.util.ArrayList;
+import model.Personnel.Person;
+import model.Personnel.Profile;
+
 /**
  *
  * @author nikam
  */
-public class NurseProfile {
+public class NurseProfile extends Profile{
+
+    public NurseProfile (Person p){
+        super(p);
+    }
     
+    @Override
+    public String getRole() {
+        return "Nurse"; // Implements the abstract method
+    }
 }
