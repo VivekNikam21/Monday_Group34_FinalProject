@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Researcher;
+package ui.Specialist;
 
 /**
  *
  * @author Dell
  */
-public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
+public class SpecialistWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ResearcherWorkAreaJPanel
+     * Creates new form SpecialistWorkAreaJPanel
      */
-    public ResearcherWorkAreaJPanel() {
+    public SpecialistWorkAreaJPanel() {
         initComponents();
     }
 
@@ -26,14 +26,14 @@ public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblResearcher = new javax.swing.JLabel();
+        lblSpecialist = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
-        lblResearcher.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblResearcher.setForeground(new java.awt.Color(255, 255, 255));
-        lblResearcher.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblResearcher.setText("RESEARCHER");
+        lblSpecialist.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblSpecialist.setForeground(new java.awt.Color(255, 255, 255));
+        lblSpecialist.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSpecialist.setText("SPECIALIST");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -41,20 +41,20 @@ public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(lblResearcher, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addComponent(lblSpecialist, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(lblResearcher, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(418, Short.MAX_VALUE))
+                .addComponent(lblSpecialist, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(416, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblResearcher;
+    private javax.swing.JLabel lblSpecialist;
     // End of variables declaration//GEN-END:variables
 }
