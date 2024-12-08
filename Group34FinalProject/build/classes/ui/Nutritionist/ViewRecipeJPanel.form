@@ -75,7 +75,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Component id="lblProcess" min="-2" pref="77" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtName" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   <Component id="lblName" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
@@ -105,7 +105,7 @@
                   <Component id="btnView" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                   <Component id="btnView1" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="492" max="32767" attributes="0"/>
+              <EmptySpace pref="485" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

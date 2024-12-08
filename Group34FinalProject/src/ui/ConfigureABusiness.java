@@ -7,6 +7,9 @@ package ui;
 import model.Business;
 import model.ClinicManagement.NurseDirectory;
 import model.ClinicManagement.NurseProfile;
+import model.ClinicManagement.Patient;
+import model.ClinicManagement.PatientManagement;
+import model.ClinicManagement.Therapist;
 import model.ClinicManagement.TherapistDirectory;
 import model.ClinicManagement.TherapistProfile;
 import model.InnovationManagement.ResearcherDirectory;
@@ -84,7 +87,24 @@ public class ConfigureABusiness {
         NutritionistProfile nutritionistprofile = nutritionistdirectory.addNutritionistProfile(nutritionistperson001);
         UserAccount ua9 = uadirectory.newUserAccount(nutritionistprofile, "nutritionist", "n123");
         
+     
+        //creating patients
         
+        Therapist therapist1 = therapistdirectory.newTherapist("Dr.Roy"); 
+        PatientManagement patientmanagement = therapist1.getPatientManagement();
+        Patient p1 = patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
+        Patient p2= patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
+        Patient p3 = patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
+        Patient p4 = patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
+        Patient p5 = patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
+        Patient p6 = patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
+        
+        Therapist therapist2 = therapistdirectory.newTherapist("Dr.5"); 
+     
+        Therapist therapist3 = therapistdirectory.newTherapist("Dr.5"); 
+      
+        Therapist therapist4 = therapistdirectory.newTherapist("Dr.6"); 
+  
         return business;
     }
 }
