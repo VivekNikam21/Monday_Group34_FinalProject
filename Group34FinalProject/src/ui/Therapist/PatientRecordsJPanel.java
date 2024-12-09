@@ -46,8 +46,8 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
         tblPatientRecords = new javax.swing.JTable();
         btnViewDetails = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        ComboBox = new javax.swing.JComboBox<>();
 
+        ComboBox = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -76,11 +76,11 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
         btnViewDetails.setForeground(new java.awt.Color(0, 102, 102));
         btnViewDetails.setText("View Details");
 
-
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("B A C K");
+
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -114,7 +114,6 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(411, 411, 411)
                         .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-
                 .addContainerGap(575, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
