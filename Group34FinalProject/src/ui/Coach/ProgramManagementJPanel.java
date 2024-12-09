@@ -31,6 +31,7 @@ public class ProgramManagementJPanel extends javax.swing.JPanel {
         tblClaims = new javax.swing.JTable();
         btnUpdate1 = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -54,7 +55,7 @@ public class ProgramManagementJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblClaims);
 
         btnUpdate1.setBackground(new java.awt.Color(204, 255, 255));
-        btnUpdate1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnUpdate1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnUpdate1.setForeground(new java.awt.Color(0, 102, 102));
         btnUpdate1.setText("Add");
         btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,9 +65,14 @@ public class ProgramManagementJPanel extends javax.swing.JPanel {
         });
 
         btnUpdate.setBackground(new java.awt.Color(204, 255, 255));
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
         btnUpdate.setText("Edit");
+
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
+        btnBack.setText("B A C K");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -84,10 +90,14 @@ public class ProgramManagementJPanel extends javax.swing.JPanel {
                         .addGap(206, 206, 206))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(607, 607, 607))
+                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(645, 645, 645))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,9 +108,11 @@ public class ProgramManagementJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(463, Short.MAX_VALUE))
+                    .addComponent(btnUpdate)
+                    .addComponent(btnUpdate1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 381, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -110,6 +122,7 @@ public class ProgramManagementJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdate1;
     private javax.swing.JScrollPane jScrollPane1;

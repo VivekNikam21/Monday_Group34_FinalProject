@@ -31,6 +31,7 @@ public class RecipeLibraryJPanel extends javax.swing.JPanel {
         tblClaims = new javax.swing.JTable();
         btnAddRecipe = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -54,14 +55,19 @@ public class RecipeLibraryJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblClaims);
 
         btnAddRecipe.setBackground(new java.awt.Color(204, 255, 255));
-        btnAddRecipe.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnAddRecipe.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnAddRecipe.setForeground(new java.awt.Color(0, 102, 102));
         btnAddRecipe.setText("Add Recipe");
 
         btnView.setBackground(new java.awt.Color(204, 255, 255));
-        btnView.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnView.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnView.setForeground(new java.awt.Color(0, 102, 102));
         btnView.setText("View Recipe");
+
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
+        btnBack.setText("B A C K");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -71,12 +77,17 @@ public class RecipeLibraryJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAddRecipe)
-                .addGap(38, 38, 38)
-                .addComponent(btnView)
-                .addGap(568, 568, 568))
+                .addGap(44, 44, 44)
+                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(573, 573, 573))
             .addGroup(layout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -91,15 +102,18 @@ public class RecipeLibraryJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddRecipe, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(480, Short.MAX_VALUE))
+                    .addComponent(btnView)
+                    .addComponent(btnAddRecipe))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 387, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddRecipe;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnView;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblProcess;
