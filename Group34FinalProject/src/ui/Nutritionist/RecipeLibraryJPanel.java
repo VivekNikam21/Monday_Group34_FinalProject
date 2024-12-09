@@ -26,97 +26,19 @@ public class RecipeLibraryJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblProcess = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblClaims = new javax.swing.JTable();
-        btnAddRecipe = new javax.swing.JButton();
-        btnView = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
-
-        setBackground(new java.awt.Color(0, 102, 102));
-
-        lblProcess.setBackground(new java.awt.Color(0, 102, 102));
-        lblProcess.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        lblProcess.setForeground(new java.awt.Color(255, 255, 255));
-        lblProcess.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblProcess.setText("Recipe Library");
-
-        tblClaims.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Name", "Category", "Nutritional Information", "Ingredients", "Details"
-            }
-        ));
-        jScrollPane1.setViewportView(tblClaims);
-
-        btnAddRecipe.setBackground(new java.awt.Color(204, 255, 255));
-        btnAddRecipe.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnAddRecipe.setForeground(new java.awt.Color(0, 102, 102));
-        btnAddRecipe.setText("Add Recipe");
-
-        btnView.setBackground(new java.awt.Color(204, 255, 255));
-        btnView.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnView.setForeground(new java.awt.Color(0, 102, 102));
-        btnView.setText("View Recipe");
-
-        btnBack.setBackground(new java.awt.Color(204, 255, 255));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(0, 102, 102));
-        btnBack.setText("B A C K");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblProcess, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1920, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddRecipe)
-                .addGap(44, 44, 44)
-                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(573, 573, 573))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddRecipe, btnView});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(lblProcess, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnView)
-                    .addComponent(btnAddRecipe))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 387, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddRecipe;
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnView;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblProcess;
-    private javax.swing.JTable tblClaims;
     // End of variables declaration//GEN-END:variables
 }

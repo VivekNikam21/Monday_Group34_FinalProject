@@ -41,7 +41,6 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
         txtName1 = new javax.swing.JTextField();
         txtName5 = new javax.swing.JTextField();
         lblName5 = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -81,7 +80,7 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
         lblName4.setText("Reason");
 
         btnView.setBackground(new java.awt.Color(204, 255, 255));
-        btnView.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnView.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnView.setForeground(new java.awt.Color(0, 102, 102));
         btnView.setText("Save");
         btnView.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +96,7 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
         });
 
         btnView1.setBackground(new java.awt.Color(204, 255, 255));
-        btnView1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnView1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnView1.setForeground(new java.awt.Color(0, 102, 102));
         btnView1.setText("Update");
         btnView1.addActionListener(new java.awt.event.ActionListener() {
@@ -123,11 +122,6 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
 
         lblName5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblName5.setText("Status");
-
-        btnBack.setBackground(new java.awt.Color(204, 255, 255));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(0, 102, 102));
-        btnBack.setText("B A C K");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -163,25 +157,18 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
                                         .addComponent(lblName2)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnView1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(lblName5)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtName5, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblName5)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtName5, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(793, 793, 793)
-                                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 1008, Short.MAX_VALUE)))
+                                .addGap(586, 586, 586)
+                                .addComponent(btnView1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 977, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnView, btnView1});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -213,11 +200,9 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
                     .addComponent(lblName5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnView)
-                    .addComponent(btnView1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 444, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnView1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(501, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -255,7 +240,6 @@ public class ViewClaimJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnView;
     private javax.swing.JButton btnView1;
     private javax.swing.JLabel lblName;
