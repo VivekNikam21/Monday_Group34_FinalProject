@@ -4,19 +4,112 @@
  */
 package ui.Specialist;
 
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Business;
+import model.InnovationManagement.Innovation;
+import model.InnovationManagement.InnovationManagement;
+import model.InnovationManagement.Specialist;
+import model.PreHealthcareManagement.Educator;
+import model.PreHealthcareManagement.Resource;
+import model.PreHealthcareManagement.ResourceManagement;
+
 /**
  *
  * @author Dell
  */
 public class InnovationTrackerJPanel extends javax.swing.JPanel {
-
+     JPanel WorkArea;
+    Business business;
+    Innovation innovation;
+    Specialist selectedspecialist;
+    InnovationManagement innovationmanagement;
     /**
      * Creates new form InnovationTrackerJPanel
      */
-    public InnovationTrackerJPanel() {
+    public InnovationTrackerJPanel(Business business, JPanel jp) {
         initComponents();
+        WorkArea = jp;
+        this.business = business;
+        initializeTable();
+        refreshTable();
     }
+     public InnovationTrackerJPanel(InnovationManagement innovationmanagement) {
+        initComponents();
+        this.innovationmanagement = innovationmanagement;
+        
+    }
+     
+     public void initializeTable() {
+//clear patient table
+       ComboBox.removeAllItems();
 
+        int rc = tblResource.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblResource.getModel()).removeRow(i);
+        }
+//load therapist to the combobox
+
+        
+        ArrayList<Specialist> specialistlist= business.getSpecialistDirectory().getSpecialistList();
+
+        if (specialistlist.isEmpty()) {
+            return;
+        }
+        for (Specialist s : specialistlist) {
+        ComboBox.addItem(s.toString());
+    }
+        
+         ComboBox.setSelectedIndex(0);
+    String specialistName = (String) ComboBox.getSelectedItem();
+        
+    if (selectedspecialist == null) {
+        // Handle the case where the therapist is not found
+        return;
+    }
+        
+    InnovationManagement im = selectedspecialist.getInnovationManagement();
+            for (Innovation in : im.getInnovationList()) {
+
+                Object[] row = new Object[5];
+                row[0] = in;
+                row[1] = in.getOwner();
+                row[2] = in.getDate();
+                ((DefaultTableModel) tblResource.getModel()).addRow(row);
+            }
+
+        }
+   
+   public void refreshTable() {
+
+//clear supplier table
+        int rc = tblResource.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblResource.getModel()).removeRow(i);
+        }
+
+        String specialistname = (String) ComboBox.getSelectedItem();
+
+        selectedspecialist = business.getSpecialistDirectory().findSpecialist(specialistname);
+        if (selectedspecialist == null) {
+            return;
+        }
+         InnovationManagement im = selectedspecialist.getInnovationManagement();
+         
+       for (Innovation in : im.getInnovationList()) {
+
+                Object[] row = new Object[5];
+                row[0] = in;
+                row[1] = in.getOwner();
+                row[2] = in.getDate();
+                ((DefaultTableModel) tblResource.getModel()).addRow(row);
+            }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,33 +119,105 @@ public class InnovationTrackerJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblProcess = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
+        ComboBox = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblResource = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(0, 102, 102));
+
+        lblProcess.setBackground(new java.awt.Color(0, 102, 102));
+        lblProcess.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblProcess.setForeground(new java.awt.Color(255, 255, 255));
+        lblProcess.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblProcess.setText("Innovation Tracker");
+
+        btnUpdate.setBackground(new java.awt.Color(204, 255, 255));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
+        btnUpdate.setText("Add Resource");
+
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        tblResource.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Name", "Owner", "Date"
+            }
+        ));
+        jScrollPane1.setViewportView(tblResource);
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(btnBack)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblProcess, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnUpdate)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(305, 305, 305)))
+                        .addGap(34, 34, 34))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(219, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(49, 49, 49))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(lblProcess, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 391, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblProcess;
+    private javax.swing.JTable tblResource;
     // End of variables declaration//GEN-END:variables
 }

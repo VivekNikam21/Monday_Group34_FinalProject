@@ -4,10 +4,12 @@
  */
 package ui.Nutritionist;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Business;
 import model.InnovationManagement.SpecialistProfile;
 import model.PreHealthcareManagement.NutritionistProfile;
+import ui.Educator.ResourceCenterJPanel;
 
 
 /**
@@ -39,7 +41,6 @@ public class NutritionistWorkAreaJPanel extends javax.swing.JPanel {
 
         btnBack = new javax.swing.JButton();
         btnMealPlan = new javax.swing.JButton();
-        btnRecipeLibrary = new javax.swing.JButton();
         lblNutritionist = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
@@ -48,15 +49,21 @@ public class NutritionistWorkAreaJPanel extends javax.swing.JPanel {
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         btnMealPlan.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnMealPlan.setForeground(new java.awt.Color(0, 102, 102));
         btnMealPlan.setText("Meal Plan");
         btnMealPlan.setMaximumSize(new java.awt.Dimension(280, 50));
-
-        btnRecipeLibrary.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnRecipeLibrary.setForeground(new java.awt.Color(0, 102, 102));
-        btnRecipeLibrary.setText("Recipe Library");
+        btnMealPlan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMealPlanActionPerformed(evt);
+            }
+        });
 
         lblNutritionist.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lblNutritionist.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,35 +78,44 @@ public class NutritionistWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(303, 303, 303)
-                        .addComponent(btnMealPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(317, 317, 317)
-                        .addComponent(btnRecipeLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(458, 458, 458)
+                        .addComponent(btnMealPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(463, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(lblNutritionist, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRecipeLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMealPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(btnMealPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnMealPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMealPlanActionPerformed
+        // TODO add your handling code here:
+        MealPlanJPanel pmjp = new MealPlanJPanel(business, WorkArea);
+        WorkArea.add("Meal", pmjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnMealPlanActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnMealPlan;
-    private javax.swing.JButton btnRecipeLibrary;
     private javax.swing.JLabel lblNutritionist;
     // End of variables declaration//GEN-END:variables
 }

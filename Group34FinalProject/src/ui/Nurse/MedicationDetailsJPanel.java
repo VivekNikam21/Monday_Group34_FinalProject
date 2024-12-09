@@ -4,8 +4,18 @@
  */
 package ui.Nurse;
 
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import model.Business;
+import model.ClinicManagement.Patient;
+import model.ClinicManagement.PatientManagement;
+import model.ClinicManagement.Therapist;
+import model.workQueue.MedicationWorkRequest;
+import ui.Therapist.AddPatientJPanel;
+import ui.Therapist.ViewDetailsJPanel;
 
 /**
  *
@@ -14,15 +24,97 @@ import model.Business;
 public class MedicationDetailsJPanel extends javax.swing.JPanel {
     JPanel WorkArea;
     Business business;
+    Therapist selectedtherapist;
+    Patient patient;
     /**
      * Creates new form MedicationDetailsJPanel
      */
     public MedicationDetailsJPanel(Business bu, JPanel jp) {
+        initComponents();
+     
+        
         WorkArea = jp;
         this.business = bu;
-        initComponents();
+        initializeTable();
+        refreshTable();
     }
+    public void initializeTable() {
 
+//clear patient table
+       ComboBox.removeAllItems();
+
+        int rc = tblPatientRecords.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblPatientRecords.getModel()).removeRow(i);
+        }
+//load therapist to the combobox
+
+        
+        ArrayList<Therapist> therapistlist= business.getTherapistDirectory().getTherapistList();
+
+        if (therapistlist.isEmpty()) {
+            return;
+        }
+        for (Therapist tp : therapistlist) {
+        ComboBox.addItem(tp.toString());
+    }
+        
+         ComboBox.setSelectedIndex(0);
+    String therapistName = (String) ComboBox.getSelectedItem();
+        
+    if (selectedtherapist == null) {
+        // Handle the case where the therapist is not found
+        return;
+    }
+     MedicationWorkRequest request = new MedicationWorkRequest();
+    PatientManagement pm = selectedtherapist.getPatientManagement();
+            for (Patient pt : pm.getPatientList()) {
+
+                Object[] row = new Object[6];
+                row[0] = pt;
+                row[1] = pt.getName();
+                row[2] = pt.getTreatment();
+                row[3] = pt.getMedication();
+                row[4] = pt.getDosage();
+                row[5] = pt.getFrequency();
+                ((DefaultTableModel) tblPatientRecords.getModel()).addRow(row);
+            }
+
+        }
+    
+    
+    public void refreshTable() {
+
+//clear patient table
+        int rc = tblPatientRecords.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblPatientRecords.getModel()).removeRow(i);
+        }
+
+        String therapistname = (String) ComboBox.getSelectedItem();
+
+        selectedtherapist = business.getTherapistDirectory().findTherapist(therapistname);
+        if (selectedtherapist == null) {
+            return;
+        }
+         MedicationWorkRequest request = new MedicationWorkRequest();
+        PatientManagement pm = selectedtherapist.getPatientManagement();
+
+        for (Patient pt : pm.getPatientList()) {
+
+            Object[] row = new Object[6];
+                row[0] = pt;
+                row[1] = pt.getName();
+                row[2] = pt.getTreatment();
+                row[3] = pt.getMedication();
+                row[4] = pt.getDosage();
+                row[5] = pt.getFrequency();
+            ((DefaultTableModel) tblPatientRecords.getModel()).addRow(row);
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,19 +124,136 @@ public class MedicationDetailsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblPatientRecords = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPatientRecords = new javax.swing.JTable();
+        btnViewDetails = new javax.swing.JButton();
+        ComboBox = new javax.swing.JComboBox<>();
+        btnBack = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(0, 102, 102));
+
+        lblPatientRecords.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblPatientRecords.setForeground(new java.awt.Color(255, 255, 255));
+        lblPatientRecords.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPatientRecords.setText("Medication Details");
+
+        tblPatientRecords.setForeground(new java.awt.Color(0, 102, 102));
+        tblPatientRecords.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Patient ID", "Name", "Treatment", "Medication", "Dosage", "Frequency"
+            }
+        ));
+        tblPatientRecords.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(tblPatientRecords);
+
+        btnViewDetails.setBackground(new java.awt.Color(204, 255, 255));
+        btnViewDetails.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnViewDetails.setForeground(new java.awt.Color(0, 102, 102));
+        btnViewDetails.setText("Update Details");
+        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDetailsActionPerformed(evt);
+            }
+        });
+
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxActionPerformed(evt);
+            }
+        });
+
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
+        btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(459, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblPatientRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 1112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(349, 349, 349))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(545, 545, 545))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(btnBack)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(lblPatientRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnViewDetails)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 400, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(39, 39, 39))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
+        // TODO add your handling code here:
+
+        int row = tblPatientRecords.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        Patient p = (Patient)tblPatientRecords.getValueAt(row, 0);
+        UpdateMedicationJPanel um = new UpdateMedicationJPanel(WorkArea, p);
+        WorkArea.add("Updatemedication", um);
+        CardLayout layout = (CardLayout)WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnViewDetailsActionPerformed
+
+    private void ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxActionPerformed
+        // TODO add your handling code here:
+        refreshTable();
+    }//GEN-LAST:event_ComboBoxActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+          WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnViewDetails;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPatientRecords;
+    private javax.swing.JTable tblPatientRecords;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,10 +4,12 @@
  */
 package ui.Coach;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Business;
 import model.InnovationManagement.SpecialistProfile;
 import model.PreHealthcareManagement.CoachProfile;
+import ui.Agent.PolicyManagementJPanel;
 /**
  *
  * @author Reva
@@ -37,8 +39,8 @@ public class CoachWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         lblCoach = new javax.swing.JLabel();
-        btnHealthProgress = new javax.swing.JButton();
-        btnProgramManagement = new javax.swing.JButton();
+        btnProgram = new javax.swing.JButton();
+        btnHealth = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
@@ -49,19 +51,34 @@ public class CoachWorkAreaJPanel extends javax.swing.JPanel {
         lblCoach.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCoach.setText("COACH");
 
-        btnHealthProgress.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnHealthProgress.setForeground(new java.awt.Color(0, 102, 102));
-        btnHealthProgress.setText("Program Management");
+        btnProgram.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnProgram.setForeground(new java.awt.Color(0, 102, 102));
+        btnProgram.setText("Program Management");
+        btnProgram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProgramActionPerformed(evt);
+            }
+        });
 
-        btnProgramManagement.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnProgramManagement.setForeground(new java.awt.Color(0, 102, 102));
-        btnProgramManagement.setText("Health Progress");
-        btnProgramManagement.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnHealth.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnHealth.setForeground(new java.awt.Color(0, 102, 102));
+        btnHealth.setText("Health Progress");
+        btnHealth.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnHealth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHealthActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -72,9 +89,9 @@ public class CoachWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(303, 303, 303)
-                        .addComponent(btnProgramManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(317, 317, 317)
-                        .addComponent(btnHealthProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnProgram, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -87,19 +104,40 @@ public class CoachWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(lblCoach, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnHealthProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProgramManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnProgram, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 857, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnHealthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHealthActionPerformed
+        // TODO add your handling code here:
+        HealthProgressJPanel pmjp = new HealthProgressJPanel(business, WorkArea);
+        WorkArea.add("Program", pmjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnHealthActionPerformed
+
+    private void btnProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProgramActionPerformed
+        // TODO add your handling code here:
+         ProgramManagementJPanel pmjp = new ProgramManagementJPanel(business, WorkArea);
+        WorkArea.add("Program", pmjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnProgramActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnHealthProgress;
-    private javax.swing.JButton btnProgramManagement;
+    private javax.swing.JButton btnHealth;
+    private javax.swing.JButton btnProgram;
     private javax.swing.JLabel lblCoach;
     // End of variables declaration//GEN-END:variables
 }

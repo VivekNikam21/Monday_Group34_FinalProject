@@ -5,6 +5,7 @@
 package model;
 
 import model.ClinicManagement.NurseDirectory;
+import model.ClinicManagement.PatientManagement;
 import model.ClinicManagement.TherapistDirectory;
 import model.InnovationManagement.ResearcherDirectory;
 import model.InnovationManagement.SpecialistDirectory;
@@ -15,6 +16,7 @@ import model.PreHealthcareManagement.CoachDirectory;
 import model.PreHealthcareManagement.EducatorDirectory;
 import model.PreHealthcareManagement.NutritionistDirectory;
 import model.UserAccountManagement.UserAccountDirectory;
+import model.workQueue.WorkQueue;
 
 /**
  *
@@ -32,6 +34,9 @@ public class Business {
     CoachDirectory coachdirectory;
     EducatorDirectory educatordirectory;
     NutritionistDirectory nutritionistdirectory;
+    PatientManagement patientmanagement;
+    AdminDirectory admindirectory;
+    WorkQueue workqueue;
     
     public Business(String n) {
         this.useraccountdirectory = new UserAccountDirectory();
@@ -45,10 +50,28 @@ public class Business {
         this.coachdirectory = new CoachDirectory();
         this.educatordirectory = new EducatorDirectory();
         this.nutritionistdirectory = new NutritionistDirectory();
+        this.admindirectory = new AdminDirectory();
+        this.workqueue = new WorkQueue();
+    }
+
+    public AdminDirectory getAdmindirectory() {
+        return admindirectory;
+    }
+
+    public WorkQueue getWorkqueue() {
+        return workqueue;
+    }
+
+    public void setWorkqueue(WorkQueue workqueue) {
+        this.workqueue = workqueue;
     }
     
     public PersonDirectory getPersonDirectory() {
         return persondirectory;
+    }
+    
+    public PatientManagement getPatientManagement(){
+        return patientmanagement;
     }
     
     public UserAccountDirectory getUserAccountDirectory() {

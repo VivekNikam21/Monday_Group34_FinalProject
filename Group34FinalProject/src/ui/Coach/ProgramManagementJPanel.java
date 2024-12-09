@@ -4,17 +4,114 @@
  */
 package ui.Coach;
 
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Business;
+import model.InsuranceManagement.Agent;
+import model.InsuranceManagement.Policy;
+import model.InsuranceManagement.PolicyManagement;
+import model.PreHealthcareManagement.Coach;
+import model.PreHealthcareManagement.Program;
+import model.PreHealthcareManagement.ProgramManagement;
+
 /**
  *
  * @author Reva
  */
 public class ProgramManagementJPanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
+    Program program;
+    Coach selectedcoach;
+    ProgramManagement programmanagement;
     /**
      * Creates new form ProgramManagementJPanel
      */
-    public ProgramManagementJPanel() {
+    public ProgramManagementJPanel(Business business, JPanel jp) {
         initComponents();
+        WorkArea = jp;
+        this.business = business;
+        initializeTable();
+        refreshTable();
+    }
+    
+    
+    public ProgramManagementJPanel(ProgramManagement programmanagement) {
+        initComponents();
+        this.programmanagement = programmanagement;
+        
+    }
+    public void initializeTable() {
+//clear patient table
+       ComboBox.removeAllItems();
+
+        int rc = tblProgram.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblProgram.getModel()).removeRow(i);
+        }
+//load therapist to the combobox
+
+        
+        ArrayList<Coach> coachlist= business.getCoachDirectory().getCoachList();
+
+        if (coachlist.isEmpty()) {
+            return;
+        }
+        for (Coach c : coachlist) {
+        ComboBox.addItem(c.toString());
+    }
+        
+         ComboBox.setSelectedIndex(0);
+    String coachName = (String) ComboBox.getSelectedItem();
+        
+    if (selectedcoach == null) {
+        // Handle the case where the therapist is not found
+        return;
+    }
+        
+    ProgramManagement pm = selectedcoach.getProgramManagement();
+            for (Program p : pm.getProgramList()) {
+
+                Object[] row = new Object[5];
+                row[0] = p;
+                row[1] = p.getSdate();
+                row[2] = p.getEdate();
+                row[3] = p.getParticipant();
+                ((DefaultTableModel) tblProgram.getModel()).addRow(row);
+            }
+
+        }
+   
+   public void refreshTable() {
+
+//clear supplier table
+        int rc = tblProgram.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblProgram.getModel()).removeRow(i);
+        }
+
+        String coachname = (String) ComboBox.getSelectedItem();
+
+        selectedcoach = business.getCoachDirectory().findCoach(coachname);
+        if (selectedcoach == null) {
+            return;
+        }
+         ProgramManagement pm = selectedcoach.getProgramManagement();
+
+        for (Program p : pm.getProgramList()) {
+
+            Object[] row = new Object[5];
+                row[0] = p;
+             row[1] = p.getSdate();
+                row[2] = p.getEdate();
+                row[3] = p.getParticipant();
+            ((DefaultTableModel) tblProgram.getModel()).addRow(row);
+        }
+
     }
 
     /**
@@ -26,19 +123,128 @@ public class ProgramManagementJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblProcess = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblProgram = new javax.swing.JTable();
+        btnUpdate1 = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        ComboBox = new javax.swing.JComboBox<>();
+
+        setBackground(new java.awt.Color(0, 102, 102));
+
+        lblProcess.setBackground(new java.awt.Color(0, 102, 102));
+        lblProcess.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblProcess.setForeground(new java.awt.Color(255, 255, 255));
+        lblProcess.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblProcess.setText("Program Management");
+
+        tblProgram.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Name", "Start Date", "End Date", "Participants"
+            }
+        ));
+        jScrollPane1.setViewportView(tblProgram);
+
+        btnUpdate1.setBackground(new java.awt.Color(204, 255, 255));
+        btnUpdate1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnUpdate1.setForeground(new java.awt.Color(0, 102, 102));
+        btnUpdate1.setText("Add");
+        btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdate1ActionPerformed(evt);
+            }
+        });
+
+        btnUpdate.setBackground(new java.awt.Color(204, 255, 255));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
+        btnUpdate.setText("Edit");
+
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
+        btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(821, 821, 821)
+                .addComponent(btnUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblProcess, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(377, 377, 377)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 370, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(lblProcess, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnUpdate1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 405, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdate1ActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnUpdate1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblProcess;
+    private javax.swing.JTable tblProgram;
     // End of variables declaration//GEN-END:variables
 }

@@ -24,15 +24,19 @@
           <Component id="lblNurse" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="btnBack" min="-2" pref="155" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
                       <Component id="btnMedication" min="-2" pref="295" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="317" max="-2" attributes="0"/>
                       <Component id="btnProgress" min="-2" pref="295" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="btnBack" min="-2" pref="155" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="471" max="-2" attributes="0"/>
+                      <Component id="btnMedication1" min="-2" pref="608" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="710" max="32767" attributes="0"/>
@@ -49,7 +53,9 @@
                   <Component id="btnProgress" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
                   <Component id="btnMedication" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="635" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+              <Component id="btnMedication1" min="-2" pref="189" max="-2" attributes="0"/>
+              <EmptySpace pref="372" max="32767" attributes="0"/>
               <Component id="btnBack" min="-2" pref="57" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
@@ -113,6 +119,26 @@
         </Property>
         <Property name="text" type="java.lang.String" value="B A C K"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnMedication1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="24" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Request Medication Details from Therapist"/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[280, 50]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMedication1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -4,10 +4,13 @@
  */
 package ui.Agent;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Business;
 import model.InnovationManagement.SpecialistProfile;
+import model.InsuranceManagement.AgentDirectory;
 import model.InsuranceManagement.AgentProfile;
+import ui.Nurse.MedicationDetailsJPanel;
 
 /**
  *
@@ -17,6 +20,7 @@ public class AgentWorkAreaJPanel extends javax.swing.JPanel {
     JPanel WorkArea;
     Business business;
     AgentProfile agent;
+    AgentDirectory agentdirectory;
     /**
      * Creates new form AgentWorkAreaJPanel
      */
@@ -52,10 +56,20 @@ public class AgentWorkAreaJPanel extends javax.swing.JPanel {
         btnPolicyManagement.setForeground(new java.awt.Color(0, 102, 102));
         btnPolicyManagement.setText("Policy Management");
         btnPolicyManagement.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnPolicyManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPolicyManagementActionPerformed(evt);
+            }
+        });
 
         btnClientProfile.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnClientProfile.setForeground(new java.awt.Color(0, 102, 102));
         btnClientProfile.setText("Client Profile");
+        btnClientProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientProfileActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -103,7 +117,24 @@ public class AgentWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnPolicyManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPolicyManagementActionPerformed
+        // TODO add your handling code here:
+        PolicyManagementJPanel pmjp = new PolicyManagementJPanel(business, WorkArea);
+        WorkArea.add("Policys", pmjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnPolicyManagementActionPerformed
+
+    private void btnClientProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientProfileActionPerformed
+        // TODO add your handling code here:
+        ClientProfileJPanel pmjp = new ClientProfileJPanel(business, WorkArea);
+        WorkArea.add("Clients", pmjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnClientProfileActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

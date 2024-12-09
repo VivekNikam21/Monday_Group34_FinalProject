@@ -4,10 +4,12 @@
  */
 package ui.Researcher;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Business;
 import model.ClinicManagement.NurseProfile;
 import model.InnovationManagement.ResearcherProfile;
+import ui.Educator.ResourceCenterJPanel;
 
 /**
  *
@@ -39,7 +41,6 @@ public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
 
         lblResearcher = new javax.swing.JLabel();
         btnResearchLog = new javax.swing.JButton();
-        btnDashboard = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
@@ -52,16 +53,21 @@ public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
         btnResearchLog.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnResearchLog.setForeground(new java.awt.Color(0, 102, 102));
         btnResearchLog.setText("Research Log");
-
-        btnDashboard.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnDashboard.setForeground(new java.awt.Color(0, 102, 102));
-        btnDashboard.setText("Dashboard");
-        btnDashboard.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnResearchLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResearchLogActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -70,16 +76,14 @@ public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(269, 269, 269)
-                        .addComponent(btnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(317, 317, 317)
-                        .addComponent(btnResearchLog, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(142, 142, 142)
-                        .addComponent(lblResearcher, javax.swing.GroupLayout.PREFERRED_SIZE, 1176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblResearcher, javax.swing.GroupLayout.PREFERRED_SIZE, 1176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(582, 582, 582)
+                        .addComponent(btnResearchLog, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(602, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -87,20 +91,31 @@ public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(lblResearcher)
-                .addGap(94, 94, 94)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnResearchLog, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 634, Short.MAX_VALUE)
+                .addGap(81, 81, 81)
+                .addComponent(btnResearchLog, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 647, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnResearchLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResearchLogActionPerformed
+        // TODO add your handling code here:
+        ResearchLogJPanel pmjp = new ResearchLogJPanel(business, WorkArea);
+        WorkArea.add("Res", pmjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnResearchLogActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnResearchLog;
     private javax.swing.JLabel lblResearcher;
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,7 @@
 package ui;
 
 
+import model.AdminProfile;
 import model.Business;
 import ui.Processor.ProcessorWorkAreaJPanel;
 import ui.Researcher.ResearcherWorkAreaJPanel;
@@ -21,6 +22,13 @@ import model.PreHealthcareManagement.EducatorProfile;
 import model.PreHealthcareManagement.NutritionistProfile;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import ui.Admin.AdminJPanel;
+import ui.Admin.AdminWorkAreaJPanel;
 import ui.Agent.AgentWorkAreaJPanel;
 import ui.Coach.CoachWorkAreaJPanel;
 import ui.Educator.EducatorWorkAreaJPanel;
@@ -34,6 +42,7 @@ import ui.Therapist.TherapistWorkAreaJpanel;
  */
 public class MainJFrame extends javax.swing.JFrame {
     Business business;
+    
     /**
      * Creates new form MainJFrame
      */
@@ -168,6 +177,18 @@ public class MainJFrame extends javax.swing.JFrame {
 
         }
         
+        AdminJPanel adminworkarea;
+
+        if (profile instanceof AdminProfile) {
+
+            AdminProfile np = (AdminProfile) profile;
+            adminworkarea = new AdminJPanel(business, np, userProcessContainer);
+           userProcessContainer.removeAll();
+            userProcessContainer.add("Admin", adminworkarea);
+            ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
+
+        }
+        
         TherapistWorkAreaJpanel therapistworkarea;
         if (profile instanceof TherapistProfile) {
 
@@ -255,6 +276,8 @@ public class MainJFrame extends javax.swing.JFrame {
             ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
 
         }
+        
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

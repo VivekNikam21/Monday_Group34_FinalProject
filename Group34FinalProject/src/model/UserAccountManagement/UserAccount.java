@@ -4,16 +4,21 @@
  */
 package model.UserAccountManagement;
 
+import model.Personnel.Person;
 import model.Personnel.Profile;
+import model.workQueue.WorkQueue;
 
 /**
  *
  * @author nikam
  */
 public class UserAccount {
+
     Profile profile;
     String username;
     String password;
+    WorkQueue workqueue;
+    Person person;
 
     public UserAccount(Profile profile, String un, String pw) {
         username = un;
@@ -41,6 +46,21 @@ public class UserAccount {
             return false;
         }
 
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+    
+    public Profile getProfile() {
+        return profile;
+    }
+    public WorkQueue getWorkqueue() {
+        return workqueue;
+    }
+
+    public void setWorkqueue(WorkQueue workqueue) {
+        this.workqueue = workqueue;
     }
 
     public String getRole() {

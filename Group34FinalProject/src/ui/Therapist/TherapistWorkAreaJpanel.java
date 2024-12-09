@@ -43,6 +43,7 @@ public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
         btnPatientRecords = new javax.swing.JButton();
         btnSessionManagement = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btnPatientRecords1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -80,6 +81,16 @@ public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
             }
         });
 
+        btnPatientRecords1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnPatientRecords1.setForeground(new java.awt.Color(0, 102, 102));
+        btnPatientRecords1.setText("Medication Report req");
+        btnPatientRecords1.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnPatientRecords1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPatientRecords1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,7 +106,10 @@ public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTherapist, javax.swing.GroupLayout.PREFERRED_SIZE, 1196, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblTherapist, javax.swing.GroupLayout.PREFERRED_SIZE, 1196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(459, 459, 459)
+                        .addComponent(btnPatientRecords1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(708, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -107,7 +121,9 @@ public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSessionManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPatientRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 646, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
+                .addComponent(btnPatientRecords1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 403, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -134,10 +150,18 @@ public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
         ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
     }//GEN-LAST:event_btnSessionManagementActionPerformed
 
+    private void btnPatientRecords1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientRecords1ActionPerformed
+        // TODO add your handling code here:
+        MedWorkReq smjp = new MedWorkReq(WorkArea, business);
+        WorkArea.add("MedWorkReq", smjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnPatientRecords1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnPatientRecords;
+    private javax.swing.JButton btnPatientRecords1;
     private javax.swing.JButton btnSessionManagement;
     private javax.swing.JLabel lblTherapist;
     // End of variables declaration//GEN-END:variables

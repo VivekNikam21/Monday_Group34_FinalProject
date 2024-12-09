@@ -23,19 +23,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
-                      <Component id="btnInnovationTracker" min="-2" pref="295" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="334" max="-2" attributes="0"/>
-                      <Component id="btnProjectReport" min="-2" pref="295" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="btnBack" min="-2" pref="155" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="650" max="-2" attributes="0"/>
+                      <Component id="btnInnovationTracker" min="-2" pref="295" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="lblSpecialist" min="-2" pref="1523" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnBack" min="-2" pref="155" max="-2" attributes="0"/>
+                          <Component id="lblSpecialist" min="-2" pref="1523" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace pref="367" max="32767" attributes="0"/>
@@ -47,14 +44,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="lblSpecialist" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnProjectReport" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
-                  <Component id="btnInnovationTracker" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="657" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+              <Component id="btnInnovationTracker" min="-2" pref="189" max="-2" attributes="0"/>
+              <EmptySpace pref="458" max="32767" attributes="0"/>
               <Component id="btnBack" min="-2" pref="57" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -85,17 +79,9 @@
           <Dimension value="[280, 50]"/>
         </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnProjectReport">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="24" style="1"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="0" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Project Report"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInnovationTrackerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
@@ -110,6 +96,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="B A C K"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

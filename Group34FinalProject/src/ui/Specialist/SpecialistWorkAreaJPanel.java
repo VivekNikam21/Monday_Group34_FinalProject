@@ -4,10 +4,12 @@
  */
 package ui.Specialist;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Business;
 import model.ClinicManagement.TherapistProfile;
 import model.InnovationManagement.SpecialistProfile;
+import ui.Educator.ResourceCenterJPanel;
 
 /**
  *
@@ -38,7 +40,6 @@ public class SpecialistWorkAreaJPanel extends javax.swing.JPanel {
 
         lblSpecialist = new javax.swing.JLabel();
         btnInnovationTracker = new javax.swing.JButton();
-        btnProjectReport = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
@@ -52,15 +53,21 @@ public class SpecialistWorkAreaJPanel extends javax.swing.JPanel {
         btnInnovationTracker.setForeground(new java.awt.Color(0, 102, 102));
         btnInnovationTracker.setText("Innovation Tracker");
         btnInnovationTracker.setMaximumSize(new java.awt.Dimension(280, 50));
-
-        btnProjectReport.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnProjectReport.setForeground(new java.awt.Color(0, 102, 102));
-        btnProjectReport.setText("Project Report");
+        btnInnovationTracker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInnovationTrackerActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -69,16 +76,13 @@ public class SpecialistWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(273, 273, 273)
-                        .addComponent(btnInnovationTracker, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(334, 334, 334)
-                        .addComponent(btnProjectReport, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(650, 650, 650)
+                        .addComponent(btnInnovationTracker, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(lblSpecialist, javax.swing.GroupLayout.PREFERRED_SIZE, 1523, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSpecialist, javax.swing.GroupLayout.PREFERRED_SIZE, 1523, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(367, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -86,21 +90,32 @@ public class SpecialistWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(lblSpecialist)
-                .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnProjectReport, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInnovationTracker, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 657, Short.MAX_VALUE)
+                .addGap(78, 78, 78)
+                .addComponent(btnInnovationTracker, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 458, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(32, 32, 32))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnInnovationTrackerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInnovationTrackerActionPerformed
+        // TODO add your handling code here:
+        InnovationTrackerJPanel pmjp = new InnovationTrackerJPanel(business, WorkArea);
+        WorkArea.add("inn", pmjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnInnovationTrackerActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnInnovationTracker;
-    private javax.swing.JButton btnProjectReport;
     private javax.swing.JLabel lblSpecialist;
     // End of variables declaration//GEN-END:variables
 }

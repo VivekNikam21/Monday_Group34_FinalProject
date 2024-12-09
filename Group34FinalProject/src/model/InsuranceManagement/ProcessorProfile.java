@@ -4,6 +4,7 @@
  */
 package model.InsuranceManagement;
 
+import model.Business;
 import model.Personnel.Person;
 import model.Personnel.Profile;
 
@@ -11,11 +12,15 @@ import model.Personnel.Profile;
  *
  * @author nikam
  */
-public class ProcessorProfile extends Profile {
+public class ProcessorProfile extends Profile { 
+    Business business;
+    String name;
     public ProcessorProfile (Person p){
         super(p);
     }
-    
+    public String getName(){
+        return name;
+    }
     @Override
     public String getRole() {
         return "Processor"; // Implements the abstract method

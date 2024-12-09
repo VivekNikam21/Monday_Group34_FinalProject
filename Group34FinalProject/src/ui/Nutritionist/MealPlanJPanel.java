@@ -4,19 +4,113 @@
  */
 package ui.Nutritionist;
 
+import java.util.ArrayList;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Business;
+import model.PreHealthcareManagement.Educator;
+import model.PreHealthcareManagement.Meal;
+import model.PreHealthcareManagement.MealManagement;
+import model.PreHealthcareManagement.Nutritionist;
+import model.PreHealthcareManagement.Resource;
+import model.PreHealthcareManagement.ResourceManagement;
+
 /**
  *
  * @author Reva
  */
 public class MealPlanJPanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
+    Meal meal;
+    Nutritionist selectednutritionist;
+    MealManagement mealmanagement;
     /**
      * Creates new form MealPlanJPanel
      */
-    public MealPlanJPanel() {
+    public MealPlanJPanel(Business business, JPanel jp) {
         initComponents();
+        WorkArea = jp;
+        this.business = business;
+        initializeTable();
+        refreshTable();
     }
+    public MealPlanJPanel(MealManagement mealmanagement) {
+        initComponents();
+        this.mealmanagement = mealmanagement;
+        
+    }
+     
+     public void initializeTable() {
+//clear patient table
+       ComboBox.removeAllItems();
 
+        int rc = tblMeal.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblMeal.getModel()).removeRow(i);
+        }
+//load therapist to the combobox
+
+        
+        ArrayList<Nutritionist> nutritionistlist= business.getNutritionistDirectory().getNutritionistList();
+
+        if (nutritionistlist.isEmpty()) {
+            return;
+        }
+        for (Nutritionist n : nutritionistlist) {
+        ComboBox.addItem(n.toString());
+    }
+        
+         ComboBox.setSelectedIndex(0);
+    String nutritionistName = (String) ComboBox.getSelectedItem();
+        
+    if (selectednutritionist == null) {
+        // Handle the case where the therapist is not found
+        return;
+    }
+        
+    MealManagement mm = selectednutritionist.getMealManagement();
+            for (Meal m : mm.getMealList()) {
+
+                Object[] row = new Object[5];
+                row[0] = m;
+                row[1] = m.getDp();
+                row[2] = m.getAllergy();
+                row[3] = m.getDays();
+                ((DefaultTableModel) tblMeal.getModel()).addRow(row);
+            }
+
+        }
+   
+   public void refreshTable() {
+
+//clear supplier table
+        int rc = tblMeal.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblMeal.getModel()).removeRow(i);
+        }
+
+        String nutritionistname = (String) ComboBox.getSelectedItem();
+
+        selectednutritionist = business.getNutritionistDirectory().findNutritionist(nutritionistname);
+        if (selectednutritionist == null) {
+            return;
+        }
+         MealManagement mm = selectednutritionist.getMealManagement();
+         
+        for (Meal m : mm.getMealList()) {
+
+          Object[] row = new Object[5];
+                row[0] = m;
+                row[1] = m.getDp();
+                row[2] = m.getAllergy();
+                row[3] = m.getDays();
+                ((DefaultTableModel) tblMeal.getModel()).addRow(row);
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,9 +122,11 @@ public class MealPlanJPanel extends javax.swing.JPanel {
 
         lblProcess = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblClaims = new javax.swing.JTable();
+        tblMeal = new javax.swing.JTable();
         btnAdd = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        ComboBox = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -40,7 +136,7 @@ public class MealPlanJPanel extends javax.swing.JPanel {
         lblProcess.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblProcess.setText("Meal Plan");
 
-        tblClaims.setModel(new javax.swing.table.DefaultTableModel(
+        tblMeal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -51,7 +147,7 @@ public class MealPlanJPanel extends javax.swing.JPanel {
                 "Name", "Dietary Prefrences", "Allergies", "Days of Week"
             }
         ));
-        jScrollPane1.setViewportView(tblClaims);
+        jScrollPane1.setViewportView(tblMeal);
 
         btnAdd.setBackground(new java.awt.Color(204, 255, 255));
         btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -63,6 +159,13 @@ public class MealPlanJPanel extends javax.swing.JPanel {
         btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
         btnUpdate.setText("Update");
 
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
+        btnBack.setText("B A C K");
+
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -71,16 +174,23 @@ public class MealPlanJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(lblProcess, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(560, 560, 560)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(534, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(219, 219, 219))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(560, 560, 560)
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAdd, btnUpdate});
@@ -90,22 +200,28 @@ public class MealPlanJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(lblProcess, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(475, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblProcess;
-    private javax.swing.JTable tblClaims;
+    private javax.swing.JTable tblMeal;
     // End of variables declaration//GEN-END:variables
 }

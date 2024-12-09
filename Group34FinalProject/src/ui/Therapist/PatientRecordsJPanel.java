@@ -6,6 +6,7 @@ package ui.Therapist;
 
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.Business;
@@ -26,10 +27,17 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
      * Creates new form PatientRecordsJPanel
      */
     public PatientRecordsJPanel(Business bu, JPanel jp) {
+         
+        initComponents();
+     
+        
         WorkArea = jp;
         this.business = bu;
-        initComponents();
         initializeTable();
+        refreshTable();
+      
+       
+        
     }
 
     /**
@@ -47,7 +55,8 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
         btnViewDetails = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         ComboBox = new javax.swing.JComboBox<>();
-
+        btnDelete = new javax.swing.JButton();
+        btnAddDetail = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -75,7 +84,11 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
         btnViewDetails.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnViewDetails.setForeground(new java.awt.Color(0, 102, 102));
         btnViewDetails.setText("View Details");
-
+        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDetailsActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -94,6 +107,26 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(204, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(0, 102, 102));
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnAddDetail.setBackground(new java.awt.Color(204, 255, 255));
+        btnAddDetail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAddDetail.setForeground(new java.awt.Color(0, 102, 102));
+        btnAddDetail.setText("Add Patient");
+        btnAddDetail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddDetailActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,13 +141,18 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(411, 411, 411)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
                             .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(411, 411, 411)
-                        .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-
+                            .addGap(18, 18, 18)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(411, 411, 411)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(575, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,9 +164,12 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
                 .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(btnViewDetails)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 479, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewDetails)
+                    .addComponent(btnDelete)
+                    .addComponent(btnAddDetail))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 431, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -167,7 +208,7 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
             for (Patient pt : pm.getPatientList()) {
 
                 Object[] row = new Object[5];
-                row[0] = pt.getId();
+                row[0] = pt;
                 row[1] = pt.getName();
                 row[2] = pt.getAge();
                 row[3] = pt.getEmailid();
@@ -180,7 +221,7 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
     
     public void refreshTable() {
 
-//clear supplier table
+//clear patient table
         int rc = tblPatientRecords.getRowCount();
         int i;
         for (i = rc - 1; i >= 0; i--) {
@@ -219,9 +260,48 @@ public class PatientRecordsJPanel extends javax.swing.JPanel {
         refreshTable();
     }//GEN-LAST:event_ComboBoxActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+         int row = tblPatientRecords.getSelectedRow();
+
+        if (row < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        Patient selectedpatient = (Patient) tblPatientRecords.getValueAt(row, 0);
+        selectedtherapist.getPatientManagement().removePatient(selectedpatient);
+        refreshTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
+        // TODO add your handling code here:
+        
+         int row = tblPatientRecords.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        Patient p = (Patient)tblPatientRecords.getValueAt(row, 0);
+        ViewDetailsJPanel vd = new ViewDetailsJPanel(WorkArea, p);
+        WorkArea.add("ViewPatient", vd);
+        CardLayout layout = (CardLayout)WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnViewDetailsActionPerformed
+
+    private void btnAddDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDetailActionPerformed
+        // TODO add your handling code here:
+        AddPatientJPanel ap = new AddPatientJPanel(business, WorkArea, selectedtherapist);
+        WorkArea.add("AddPatient", ap);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnAddDetailActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBox;
+    private javax.swing.JButton btnAddDetail;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPatientRecords;

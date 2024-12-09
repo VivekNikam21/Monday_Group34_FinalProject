@@ -4,24 +4,109 @@
  */
 package ui.Nurse;
 
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import model.Business;
+import model.ClinicManagement.Patient;
+import model.ClinicManagement.PatientManagement;
+import model.ClinicManagement.Therapist;
 
 /**
  *
  * @author Dell
  */
 public class ProgressReportJPanel extends javax.swing.JPanel {
-    JPanel WorkArea;
+     JPanel WorkArea;
     Business business;
+    Therapist selectedtherapist;
+    Patient patient;
     /**
      * Creates new form ProgressReportJPanel
      */
     public ProgressReportJPanel(Business bu, JPanel jp) {
+       initComponents();
+     
+        
         WorkArea = jp;
         this.business = bu;
-        initComponents();
-        initComponents();
+        initializeTable();
+        refreshTable();
+    }
+    
+    public void initializeTable() {
+
+//clear patient table
+       ComboBox.removeAllItems();
+
+        int rc = tblPatientRecords.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblPatientRecords.getModel()).removeRow(i);
+        }
+//load therapist to the combobox
+
+        
+        ArrayList<Therapist> therapistlist= business.getTherapistDirectory().getTherapistList();
+
+        if (therapistlist.isEmpty()) {
+            return;
+        }
+        for (Therapist tp : therapistlist) {
+        ComboBox.addItem(tp.toString());
+    }
+        
+         ComboBox.setSelectedIndex(0);
+    String therapistName = (String) ComboBox.getSelectedItem();
+        
+    if (selectedtherapist == null) {
+        // Handle the case where the therapist is not found
+        return;
+    }
+        
+    PatientManagement pm = selectedtherapist.getPatientManagement();
+            for (Patient pt : pm.getPatientList()) {
+
+                Object[] row = new Object[4];
+                row[0] = pt;
+                row[1] = pt.getName();
+                row[2] = pt.getSummary();
+                row[3] = pt.getNcomments();
+                ((DefaultTableModel) tblPatientRecords.getModel()).addRow(row);
+            }
+
+        }
+    
+    
+    public void refreshTable() {
+
+//clear patient table
+        int rc = tblPatientRecords.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblPatientRecords.getModel()).removeRow(i);
+        }
+
+        String therapistname = (String) ComboBox.getSelectedItem();
+
+        selectedtherapist = business.getTherapistDirectory().findTherapist(therapistname);
+        if (selectedtherapist == null) {
+            return;
+        }
+        PatientManagement pm = selectedtherapist.getPatientManagement();
+
+        for (Patient pt : pm.getPatientList()) {
+
+            Object[] row = new Object[4];
+                row[0] = pt;
+                row[1] = pt.getName();
+                row[2] = pt.getSummary();
+                row[3] = pt.getNcomments();
+            ((DefaultTableModel) tblPatientRecords.getModel()).addRow(row);
+        }
+
     }
 
     /**
@@ -33,19 +118,132 @@ public class ProgressReportJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblProgressReport = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPatientRecords = new javax.swing.JTable();
+        btnUpdate = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        ComboBox = new javax.swing.JComboBox<>();
+
+        setBackground(new java.awt.Color(0, 102, 102));
+
+        lblProgressReport.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblProgressReport.setForeground(new java.awt.Color(255, 255, 255));
+        lblProgressReport.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblProgressReport.setText("Progress Report");
+
+        tblPatientRecords.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Patient ID", "Name", "Summary", "Nurse Comments"
+            }
+        ));
+        jScrollPane1.setViewportView(tblPatientRecords);
+
+        btnUpdate.setBackground(new java.awt.Color(204, 255, 255));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
+        btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(lblProgressReport, javax.swing.GroupLayout.PREFERRED_SIZE, 1302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(361, 361, 361)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnUpdate)))))
+                .addContainerGap(531, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblProgressReport, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnUpdate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 444, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxActionPerformed
+        // TODO add your handling code here:
+        refreshTable();
+    }//GEN-LAST:event_ComboBoxActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+          WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        int row = tblPatientRecords.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        Patient p = (Patient)tblPatientRecords.getValueAt(row, 0);
+        UpdateProgressReport um = new UpdateProgressReport(WorkArea, p);
+        WorkArea.add("Updateprogress", um);
+        CardLayout layout = (CardLayout)WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblProgressReport;
+    private javax.swing.JTable tblPatientRecords;
     // End of variables declaration//GEN-END:variables
 }

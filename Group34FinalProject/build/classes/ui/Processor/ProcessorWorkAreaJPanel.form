@@ -26,9 +26,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
-                      <Component id="btnDocuments" min="-2" pref="295" max="-2" attributes="0"/>
+                      <Component id="btnClaim" min="-2" pref="295" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="317" max="-2" attributes="0"/>
-                      <Component id="btnClaimManagement" min="-2" pref="295" max="-2" attributes="0"/>
+                      <Component id="btnDoc" min="-2" pref="295" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
@@ -46,8 +46,8 @@
               <Component id="lblProcess" min="-2" pref="77" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnClaimManagement" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
-                  <Component id="btnDocuments" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
+                  <Component id="btnDoc" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
+                  <Component id="btnClaim" alignment="3" min="-2" pref="189" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="655" max="32767" attributes="0"/>
               <Component id="btnBack" min="-2" pref="57" max="-2" attributes="0"/>
@@ -69,7 +69,7 @@
         <Property name="text" type="java.lang.String" value="PROCESSOR"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnClaimManagement">
+    <Component class="javax.swing.JButton" name="btnDoc">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
@@ -79,8 +79,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Documents"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDocActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnDocuments">
+    <Component class="javax.swing.JButton" name="btnClaim">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
@@ -93,6 +96,9 @@
           <Dimension value="[280, 50]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClaimActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
@@ -107,6 +113,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="B A C K"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

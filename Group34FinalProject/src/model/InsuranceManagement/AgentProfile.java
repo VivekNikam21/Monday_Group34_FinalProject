@@ -4,6 +4,8 @@
  */
 package model.InsuranceManagement;
 
+import model.Business;
+import model.ClinicManagement.PatientManagement;
 import model.Personnel.Person;
 import model.Personnel.Profile;
 
@@ -12,9 +14,14 @@ import model.Personnel.Profile;
  * @author nikam
  */
 public class AgentProfile extends Profile {
-    
+    Business business;
+    String name;
+    PolicyManagement policymanagement;
     public AgentProfile (Person p){
         super(p);
+    }
+     public String getName(){
+        return name;
     }
     
     @Override

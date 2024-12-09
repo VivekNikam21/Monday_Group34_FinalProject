@@ -4,19 +4,112 @@
  */
 package ui.Educator;
 
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Business;
+import model.PreHealthcareManagement.Coach;
+import model.PreHealthcareManagement.Educator;
+import model.PreHealthcareManagement.Program;
+import model.PreHealthcareManagement.ProgramManagement;
+import model.PreHealthcareManagement.Resource;
+import model.PreHealthcareManagement.ResourceManagement;
+
 /**
  *
  * @author Reva
  */
 public class ResourceCenterJPanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
+    Resource resource;
+    Educator selectededucator;
+    ResourceManagement resourcemanagement;
     /**
      * Creates new form ResourceCenterJPanel
      */
-    public ResourceCenterJPanel() {
+    public ResourceCenterJPanel(Business business, JPanel jp) {
         initComponents();
+         WorkArea = jp;
+        this.business = business;
+        initializeTable();
+        refreshTable();
     }
+     public ResourceCenterJPanel(ResourceManagement resourcemanagement) {
+        initComponents();
+        this.resourcemanagement = resourcemanagement;
+        
+    }
+     
+     public void initializeTable() {
+//clear patient table
+       ComboBox.removeAllItems();
 
+        int rc = tblResource.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblResource.getModel()).removeRow(i);
+        }
+//load therapist to the combobox
+
+        
+        ArrayList<Educator> educatorlist= business.getEducatorDirectory().getEducatorList();
+
+        if (educatorlist.isEmpty()) {
+            return;
+        }
+        for (Educator e : educatorlist) {
+        ComboBox.addItem(e.toString());
+    }
+        
+         ComboBox.setSelectedIndex(0);
+    String educatorName = (String) ComboBox.getSelectedItem();
+        
+    if (selectededucator == null) {
+        // Handle the case where the therapist is not found
+        return;
+    }
+        
+    ResourceManagement rm = selectededucator.getResourceManagement();
+            for (Resource r : rm.getResourceList()) {
+
+                Object[] row = new Object[5];
+                row[0] = r;
+                row[1] = r.getType();
+                row[2] = r.getUpload();
+                ((DefaultTableModel) tblResource.getModel()).addRow(row);
+            }
+
+        }
+   
+   public void refreshTable() {
+
+//clear supplier table
+        int rc = tblResource.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblResource.getModel()).removeRow(i);
+        }
+
+        String educatorname = (String) ComboBox.getSelectedItem();
+
+        selectededucator = business.getEducatorDirectory().findEducator(educatorname);
+        if (selectededucator == null) {
+            return;
+        }
+         ResourceManagement rm = selectededucator.getResourceManagement();
+         
+        for (Resource r : rm.getResourceList()) {
+
+            Object[] row = new Object[5];
+                row[0] = r;
+                row[1] = r.getType();
+                row[2] = r.getUpload();
+            ((DefaultTableModel) tblResource.getModel()).addRow(row);
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,19 +119,105 @@ public class ResourceCenterJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnUpdate = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblResource = new javax.swing.JTable();
+        lblProcess = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        ComboBox = new javax.swing.JComboBox<>();
+
+        setBackground(new java.awt.Color(0, 102, 102));
+
+        btnUpdate.setBackground(new java.awt.Color(204, 255, 255));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
+        btnUpdate.setText("Add Resource");
+
+        tblResource.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Title", "Type", "Upload Date"
+            }
+        ));
+        jScrollPane1.setViewportView(tblResource);
+
+        lblProcess.setBackground(new java.awt.Color(0, 102, 102));
+        lblProcess.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblProcess.setForeground(new java.awt.Color(255, 255, 255));
+        lblProcess.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblProcess.setText("Resource Center");
+
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
+        btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1724, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(lblProcess, javax.swing.GroupLayout.DEFAULT_SIZE, 1860, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnUpdate)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(135, 135, 135))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(311, 311, 311))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(lblProcess, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 398, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+         WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblProcess;
+    private javax.swing.JTable tblResource;
     // End of variables declaration//GEN-END:variables
 }

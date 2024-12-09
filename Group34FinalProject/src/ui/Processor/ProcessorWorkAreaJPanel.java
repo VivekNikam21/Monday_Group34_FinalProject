@@ -4,10 +4,12 @@
  */
 package ui.Processor;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Business;
 import model.InnovationManagement.SpecialistProfile;
 import model.InsuranceManagement.ProcessorProfile;
+import ui.Agent.PolicyManagementJPanel;
 
 /**
  *
@@ -37,8 +39,8 @@ public class ProcessorWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         lblProcess = new javax.swing.JLabel();
-        btnClaimManagement = new javax.swing.JButton();
-        btnDocuments = new javax.swing.JButton();
+        btnDoc = new javax.swing.JButton();
+        btnClaim = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
@@ -48,19 +50,34 @@ public class ProcessorWorkAreaJPanel extends javax.swing.JPanel {
         lblProcess.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblProcess.setText("PROCESSOR");
 
-        btnClaimManagement.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnClaimManagement.setForeground(new java.awt.Color(0, 102, 102));
-        btnClaimManagement.setText("Documents");
+        btnDoc.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnDoc.setForeground(new java.awt.Color(0, 102, 102));
+        btnDoc.setText("Documents");
+        btnDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDocActionPerformed(evt);
+            }
+        });
 
-        btnDocuments.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnDocuments.setForeground(new java.awt.Color(0, 102, 102));
-        btnDocuments.setText("Claim Management");
-        btnDocuments.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnClaim.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnClaim.setForeground(new java.awt.Color(0, 102, 102));
+        btnClaim.setText("Claim Management");
+        btnClaim.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnClaim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClaimActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -71,9 +88,9 @@ public class ProcessorWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(303, 303, 303)
-                        .addComponent(btnDocuments, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnClaim, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(317, 317, 317)
-                        .addComponent(btnClaimManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -86,19 +103,40 @@ public class ProcessorWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(lblProcess, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClaimManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDocuments, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClaim, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 655, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnClaimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClaimActionPerformed
+        // TODO add your handling code here:
+        ClaimManagementJPanel cmjp = new ClaimManagementJPanel(business, WorkArea);
+        WorkArea.add("Claims", cmjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnClaimActionPerformed
+
+    private void btnDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocActionPerformed
+        // TODO add your handling code here:
+        DocumentsJPanel dmjp = new DocumentsJPanel(business, WorkArea);
+        WorkArea.add("Claims", dmjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnDocActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnClaimManagement;
-    private javax.swing.JButton btnDocuments;
+    private javax.swing.JButton btnClaim;
+    private javax.swing.JButton btnDoc;
     private javax.swing.JLabel lblProcess;
     // End of variables declaration//GEN-END:variables
 }

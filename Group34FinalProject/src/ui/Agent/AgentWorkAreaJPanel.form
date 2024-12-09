@@ -85,6 +85,9 @@
           <Dimension value="[280, 50]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPolicyManagementActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnClientProfile">
       <Properties>
@@ -96,6 +99,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Client Profile"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClientProfileActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>

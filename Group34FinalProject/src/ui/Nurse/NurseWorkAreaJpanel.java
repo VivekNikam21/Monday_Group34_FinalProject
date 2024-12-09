@@ -5,6 +5,7 @@
 package ui.Nurse;
 
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Business;
 import model.ClinicManagement.NurseProfile;
@@ -40,6 +41,7 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
         btnMedication = new javax.swing.JButton();
         btnProgress = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btnMedication1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -71,6 +73,21 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        btnMedication1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnMedication1.setForeground(new java.awt.Color(0, 102, 102));
+        btnMedication1.setText("Request Medication Details from Therapist");
+        btnMedication1.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnMedication1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMedication1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,13 +97,16 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(303, 303, 303)
                         .addComponent(btnMedication, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(317, 317, 317)
                         .addComponent(btnProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(471, 471, 471)
+                        .addComponent(btnMedication1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(710, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -98,7 +118,9 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMedication, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 635, Short.MAX_VALUE)
+                .addGap(74, 74, 74)
+                .addComponent(btnMedication1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 372, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -118,10 +140,25 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
         ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
     }//GEN-LAST:event_btnProgressActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnMedication1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedication1ActionPerformed
+        // TODO add your handling code here:
+        NurseWorkRequest prjp = new NurseWorkRequest(WorkArea, business);
+        WorkArea.add("WR", prjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnMedication1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnMedication;
+    private javax.swing.JButton btnMedication1;
     private javax.swing.JButton btnProgress;
     private javax.swing.JLabel lblNurse;
     // End of variables declaration//GEN-END:variables

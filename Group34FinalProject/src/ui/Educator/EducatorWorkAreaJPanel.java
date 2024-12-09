@@ -4,10 +4,12 @@
  */
 package ui.Educator;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Business;
 import model.InnovationManagement.SpecialistProfile;
 import model.PreHealthcareManagement.EducatorProfile;
+import ui.Coach.HealthProgressJPanel;
 /**
  *
  * @author Reva
@@ -37,7 +39,6 @@ public class EducatorWorkAreaJPanel extends javax.swing.JPanel {
 
         lblEducator = new javax.swing.JLabel();
         btnResourceCenter = new javax.swing.JButton();
-        btnWorkshopManagement = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
@@ -52,15 +53,21 @@ public class EducatorWorkAreaJPanel extends javax.swing.JPanel {
         btnResourceCenter.setForeground(new java.awt.Color(0, 102, 102));
         btnResourceCenter.setText("Resource Center");
         btnResourceCenter.setMaximumSize(new java.awt.Dimension(280, 50));
-
-        btnWorkshopManagement.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnWorkshopManagement.setForeground(new java.awt.Color(0, 102, 102));
-        btnWorkshopManagement.setText("Workshop Management");
+        btnResourceCenter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResourceCenterActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("B A C K");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -70,35 +77,44 @@ public class EducatorWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(303, 303, 303)
-                        .addComponent(btnResourceCenter, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(317, 317, 317)
-                        .addComponent(btnWorkshopManagement))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(724, Short.MAX_VALUE))
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(825, 825, 825)
+                        .addComponent(btnResourceCenter, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(824, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(lblEducator, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnWorkshopManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnResourceCenter, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 635, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
+                .addComponent(btnResourceCenter, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 680, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnResourceCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResourceCenterActionPerformed
+        // TODO add your handling code here:
+        ResourceCenterJPanel pmjp = new ResourceCenterJPanel(business, WorkArea);
+        WorkArea.add("Program", pmjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnResourceCenterActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+         WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnResourceCenter;
-    private javax.swing.JButton btnWorkshopManagement;
     private javax.swing.JLabel lblEducator;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,8 +17,8 @@ public class PatientManagement {
          patients = new ArrayList();  ///create the list of elements otherwise it is null
     }
     
-     public Patient newPatient(String n, int id, int age, String eid, String nu) {
-        Patient p = new Patient(n,id, age, eid, nu);
+     public Patient newPatient(String n, int id, int age, String eid, String nu, String t, String ts, String s, String ns, String m, int d, int f) {
+        Patient p = new Patient(n,id, age, eid, nu, t, ts, s ,ns,m,d,f);
         patients.add(p);
         return p;
     }
@@ -27,5 +27,16 @@ public class PatientManagement {
         return patients;
     }
 
-     
+    public void removePatient(Patient p) {
+        patients.remove(p);
+    }
+    
+    public Patient searchPatient(String search){
+        for (Patient p:patients){
+            if(p.getName().contains(search)) {
+                return p;
+        }
+        }
+        return null;
+    }
 }
