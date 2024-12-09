@@ -20,7 +20,7 @@ public class NutritionistDirectory {
     
      public NutritionistProfile addNutritionistProfile(Person p){
          
-         NutritionistProfile np = new NutritionistProfile();
+         NutritionistProfile np = new NutritionistProfile(p);
          nutritionistlist.add(np);
          return np;
      }   

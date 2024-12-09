@@ -20,7 +20,7 @@ public class SpecialistDirectory {
     
      public SpecialistProfile addSpecialistProfile(Person p){
          
-         SpecialistProfile sp = new SpecialistProfile();
+         SpecialistProfile sp = new SpecialistProfile(p);
          specialistlist.add(sp);
          return sp;
      }   

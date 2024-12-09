@@ -4,10 +4,21 @@
  */
 package model.InnovationManagement;
 
+import model.Personnel.Person;
+import model.Personnel.Profile;
+
 /**
  *
  * @author nikam
  */
-public class ResearcherProfile {
+public class ResearcherProfile extends Profile {
     
+    public ResearcherProfile (Person p){
+        super(p);
+    }
+    
+    @Override
+    public String getRole() {
+        return "Researcher"; // Implements the abstract method
+    }
 }

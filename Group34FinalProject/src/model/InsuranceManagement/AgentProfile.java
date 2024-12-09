@@ -4,10 +4,21 @@
  */
 package model.InsuranceManagement;
 
+import model.Personnel.Person;
+import model.Personnel.Profile;
+
 /**
  *
  * @author nikam
  */
-public class AgentProfile {
+public class AgentProfile extends Profile {
     
+    public AgentProfile (Person p){
+        super(p);
+    }
+    
+    @Override
+    public String getRole() {
+        return "Agent"; // Implements the abstract method
+    }
 }

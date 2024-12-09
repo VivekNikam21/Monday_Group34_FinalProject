@@ -22,7 +22,7 @@ public class AgentDirectory {
     
      public AgentProfile addAgentProfile(Person p){
          
-         AgentProfile ap = new AgentProfile();
+         AgentProfile ap = new AgentProfile(p);
          agentlist.add(ap);
          return ap;
      }   

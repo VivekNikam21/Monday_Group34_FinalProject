@@ -4,16 +4,27 @@
  */
 package ui.Nutritionist;
 
+import javax.swing.JPanel;
+import model.Business;
+import model.InnovationManagement.SpecialistProfile;
+import model.PreHealthcareManagement.NutritionistProfile;
+
+
 /**
  *
  * @author Reva
  */
 public class NutritionistWorkAreaJPanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
+    NutritionistProfile nutritionist;
     /**
      * Creates new form NutritionistWorkAreaJPanel
      */
-    public NutritionistWorkAreaJPanel() {
+    public NutritionistWorkAreaJPanel(Business b, NutritionistProfile np, JPanel njp) {
+        business = b;
+        this.WorkArea = njp;
+        nutritionist = np;
         initComponents();
     }
 

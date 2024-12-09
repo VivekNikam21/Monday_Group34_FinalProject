@@ -28,7 +28,7 @@ public class MealPlanJPanel extends javax.swing.JPanel {
 
         lblProcess = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblClaims = new javax.swing.JTable();
+        tblMealPlan = new javax.swing.JTable();
         btnAdd = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
@@ -41,7 +41,7 @@ public class MealPlanJPanel extends javax.swing.JPanel {
         lblProcess.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblProcess.setText("Meal Plan");
 
-        tblClaims.setModel(new javax.swing.table.DefaultTableModel(
+        tblMealPlan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -52,7 +52,7 @@ public class MealPlanJPanel extends javax.swing.JPanel {
                 "Name", "Dietary Prefrences", "Allergies", "Days of Week"
             }
         ));
-        jScrollPane1.setViewportView(tblClaims);
+        jScrollPane1.setViewportView(tblMealPlan);
 
         btnAdd.setBackground(new java.awt.Color(204, 255, 255));
         btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -120,6 +120,6 @@ public class MealPlanJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblProcess;
-    private javax.swing.JTable tblClaims;
+    private javax.swing.JTable tblMealPlan;
     // End of variables declaration//GEN-END:variables
 }

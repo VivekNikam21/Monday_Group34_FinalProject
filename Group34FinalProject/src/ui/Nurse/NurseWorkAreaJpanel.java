@@ -42,10 +42,20 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
         btnMedication.setForeground(new java.awt.Color(0, 102, 102));
         btnMedication.setText("Medication Details");
         btnMedication.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnMedication.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMedicationActionPerformed(evt);
+            }
+        });
 
         btnProgress.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnProgress.setForeground(new java.awt.Color(0, 102, 102));
         btnProgress.setText("Progress Report ");
+        btnProgress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProgressActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -67,7 +77,7 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(914, Short.MAX_VALUE))
+                .addContainerGap(710, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,11 +88,25 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMedication, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 655, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 635, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMedicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicationActionPerformed
+        // TODO add your handling code here:
+        MedicationDetailsJPanel mdjp = new MedicationDetailsJPanel(business, WorkArea);
+        WorkArea.add("MedicationDetails", mdjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnMedicationActionPerformed
+
+    private void btnProgressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProgressActionPerformed
+        // TODO add your handling code here:
+        ProgressReportJPanel prjp = new ProgressReportJPanel(business, WorkArea);
+        WorkArea.add("ProgressReport", prjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnProgressActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

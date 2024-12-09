@@ -4,10 +4,28 @@
  */
 package model.ClinicManagement;
 
+import model.Business;
+import model.Personnel.Person;
+import model.Personnel.Profile;
+
 /**
  *
  * @author nikam
  */
-public class TherapistProfile {
+public class TherapistProfile extends Profile {
+    Business business;
+    String name;
+    PatientManagement patientmanagement;
+    public TherapistProfile (Person p){
+        super(p);
+    }
+    
+    public String getName(){
+        return name;
+    }
+    @Override
+    public String getRole() {
+        return "Therapist"; // Implements the abstract method
+    }
     
 }

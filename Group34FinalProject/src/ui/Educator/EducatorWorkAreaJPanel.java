@@ -4,16 +4,25 @@
  */
 package ui.Educator;
 
+import javax.swing.JPanel;
+import model.Business;
+import model.InnovationManagement.SpecialistProfile;
+import model.PreHealthcareManagement.EducatorProfile;
 /**
  *
  * @author Reva
  */
 public class EducatorWorkAreaJPanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
+    EducatorProfile educator;
     /**
      * Creates new form EducatorWorkAreaJPanel
      */
-    public EducatorWorkAreaJPanel() {
+    public EducatorWorkAreaJPanel(Business b, EducatorProfile ep, JPanel ejp) {
+        business = b;
+        this.WorkArea = ejp;
+        educator = ep;
         initComponents();
     }
 

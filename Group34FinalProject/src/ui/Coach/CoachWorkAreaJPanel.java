@@ -4,16 +4,26 @@
  */
 package ui.Coach;
 
+import javax.swing.JPanel;
+import model.Business;
+import model.InnovationManagement.SpecialistProfile;
+import model.PreHealthcareManagement.CoachProfile;
 /**
  *
  * @author Reva
  */
 public class CoachWorkAreaJPanel extends javax.swing.JPanel {
 
+    JPanel WorkArea;
+    Business business;
+    CoachProfile coach;
     /**
      * Creates new form CoachWorkAreaJPanel
      */
-    public CoachWorkAreaJPanel() {
+    public CoachWorkAreaJPanel(Business b, CoachProfile cp, JPanel cjp) {
+        business = b;
+        this.WorkArea = cjp;
+        coach = cp;
         initComponents();
     }
 

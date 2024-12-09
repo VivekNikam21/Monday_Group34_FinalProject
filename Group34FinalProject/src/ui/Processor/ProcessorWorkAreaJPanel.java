@@ -4,16 +4,26 @@
  */
 package ui.Processor;
 
+import javax.swing.JPanel;
+import model.Business;
+import model.InnovationManagement.SpecialistProfile;
+import model.InsuranceManagement.ProcessorProfile;
+
 /**
  *
  * @author Reva
  */
 public class ProcessorWorkAreaJPanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
+    ProcessorProfile processor;
     /**
      * Creates new form ProcessorWorkAreaJPanel
      */
-    public ProcessorWorkAreaJPanel() {
+    public ProcessorWorkAreaJPanel(Business b, ProcessorProfile pp, JPanel pjp) {
+        business = b;
+        this.WorkArea = pjp;
+        processor = pp;
         initComponents();
     }
 
