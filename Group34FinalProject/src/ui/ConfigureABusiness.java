@@ -90,20 +90,35 @@ public class ConfigureABusiness {
      
         //creating patients
         
-        Therapist therapist1 = therapistdirectory.newTherapist("Dr.Roy"); 
+        Therapist therapist1 = therapistdirectory.newTherapist("Dr.Modi"); 
         PatientManagement patientmanagement = therapist1.getPatientManagement();
-        Patient p1 = patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
-        Patient p2= patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
-        Patient p3 = patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
-        Patient p4 = patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
-        Patient p5 = patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
-        Patient p6 = patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380438");
+        Patient p1 = patientmanagement.newPatient("Ronaldo", 1456, 35, "Ronaldo@gmail.com", "6174380421");
+        Patient p2= patientmanagement.newPatient("Akash", 1457, 25, "akash@gmail.com", "6174380439");
+        Patient p3 = patientmanagement.newPatient("Vilas", 1458, 28, "vilas@gmail.com", "6174380432");
+        Patient p4 = patientmanagement.newPatient("Shreyas", 1459, 24, "shreyas@gmail.com", "6174380433");
+        Patient p5 = patientmanagement.newPatient("Rahul", 1460, 18, "rahul@gmail.com", "5237438043");
+        Patient p6 = patientmanagement.newPatient("Reva", 1461, 23, "reva@gmail.com", "7974380438");
+        Patient p7 = patientmanagement.newPatient("Neha", 1462, 23, "neha@gmail.com", "2174380438");
+        Patient p8 = patientmanagement.newPatient("Udit", 1463, 38, "udit@gmail.com", "9774380438");
+        Patient p9 = patientmanagement.newPatient("Renuka", 1464, 24, "renuka@gmail.com", "4574380438");
+        Patient p10 = patientmanagement.newPatient("kavya", 1465, 52, "kavya@gmail.com", "1274380438");
         
-        Therapist therapist2 = therapistdirectory.newTherapist("Dr.5"); 
+        Therapist therapist2 = therapistdirectory.newTherapist("Dr.Roy"); 
+        PatientManagement patientmanagement2 = therapist2.getPatientManagement();
+        Patient p11 = patientmanagement2.newPatient("Rofl", 1432, 35, "Ronaldo@gmail.com", "6174380421");
+        Patient p12= patientmanagement2.newPatient("lol", 1431, 25, "akash@gmail.com", "6174380439");
+        Patient p13 = patientmanagement2.newPatient("Idaho", 1433, 28, "vilas@gmail.com", "6174380432");
+        Patient p14 = patientmanagement2.newPatient("Tulip", 1434, 24, "shreyas@gmail.com", "6174380433");
+        Patient p15 = patientmanagement2.newPatient("onion", 1435, 18, "rahul@gmail.com", "5237438043");
+        Patient p16 = patientmanagement2.newPatient("Squid", 1436, 23, "reva@gmail.com", "7974380438");
+        Patient p17 = patientmanagement2.newPatient("Kool", 1437, 23, "neha@gmail.com", "2174380438");
+        Patient p18 = patientmanagement2.newPatient("Neil", 1438, 38, "udit@gmail.com", "9774380438");
+        Patient p19 = patientmanagement2.newPatient("Slang", 1439, 24, "renuka@gmail.com", "4574380438");
+        Patient p20 = patientmanagement2.newPatient("Option", 1440, 52, "kavya@gmail.com", "1274380438");
      
-        Therapist therapist3 = therapistdirectory.newTherapist("Dr.5"); 
+        Therapist therapist3 = therapistdirectory.newTherapist("Dr.Khanna"); 
       
-        Therapist therapist4 = therapistdirectory.newTherapist("Dr.6"); 
+        Therapist therapist4 = therapistdirectory.newTherapist("Dr. Lol "); 
   
         return business;
     }
