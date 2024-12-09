@@ -4,27 +4,16 @@
  */
 package ui.Researcher;
 
-import javax.swing.JPanel;
-import model.Business;
-import model.ClinicManagement.NurseProfile;
-import model.InnovationManagement.ResearcherProfile;
-
 /**
  *
  * @author Dell
  */
 public class ResearcherWorkAreaJPanel extends javax.swing.JPanel {
-    
-    JPanel WorkArea;
-    Business business;
-    ResearcherProfile researcher;
+
     /**
      * Creates new form ResearcherWorkAreaJPanel
      */
-    public ResearcherWorkAreaJPanel(Business b, ResearcherProfile rp, JPanel rjp) {
-        business = b;
-        this.WorkArea = rjp;
-        researcher = rp;
+    public ResearcherWorkAreaJPanel() {
         initComponents();
     }
 

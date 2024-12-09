@@ -4,22 +4,16 @@
  */
 package ui.Nurse;
 
-import javax.swing.JPanel;
-import model.Business;
-
 /**
  *
  * @author Dell
  */
 public class MedicationDetailsJPanel extends javax.swing.JPanel {
-    JPanel WorkArea;
-    Business business;
+
     /**
      * Creates new form MedicationDetailsJPanel
      */
-    public MedicationDetailsJPanel(Business bu, JPanel jp) {
-        WorkArea = jp;
-        this.business = bu;
+    public MedicationDetailsJPanel() {
         initComponents();
     }
 
