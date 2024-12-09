@@ -4,10 +4,11 @@
  */
 package ui;
 
-<<<<<<< HEAD
-=======
 
 import model.Business;
+import ui.Processor.ProcessorWorkAreaJPanel;
+import ui.Researcher.ResearcherWorkAreaJPanel;
+import ui.Specialist.SpecialistWorkAreaJPanel;
 import model.ClinicManagement.NurseProfile;
 import model.ClinicManagement.TherapistProfile;
 import model.InnovationManagement.ResearcherProfile;
@@ -25,12 +26,10 @@ import ui.Coach.CoachWorkAreaJPanel;
 import ui.Educator.EducatorWorkAreaJPanel;
 import ui.Nurse.NurseWorkAreaJpanel;  
 import ui.Nutritionist.NutritionistWorkAreaJPanel;
-import ui.Processor.ProcessorWorkAreaJPanel;
-import ui.Researcher.ResearcherWorkAreaJPanel;
-import ui.Specialist.SpecialistWorkAreaJPanel;
 import ui.Therapist.TherapistWorkAreaJpanel;
 
->>>>>>> 873e946a1c48cb7d74428bc01626198d1f1f284a
+/*correct ui
+
 /**
  *
  * @author Dell
@@ -142,8 +141,7 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
-=======
+
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         String un = txtUser.getText();
@@ -255,8 +253,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnLoginActionPerformed
-
->>>>>>> 873e946a1c48cb7d74428bc01626198d1f1f284a
     /**
      * @param args the command line arguments
      */
