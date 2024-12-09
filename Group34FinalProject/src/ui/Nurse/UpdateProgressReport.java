@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Therapist;
+package ui.Nurse;
 
 /**
  *
  * @author Dell
  */
-public class UpdateJPanel extends javax.swing.JPanel {
+public class UpdateProgressReport extends javax.swing.JPanel {
 
     /**
-     * Creates new form UpdateJPanel
+     * Creates new form UpdateProgressReport
      */
-    public UpdateJPanel() {
+    public UpdateProgressReport() {
         initComponents();
     }
 
@@ -26,24 +26,29 @@ public class UpdateJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnSave = new javax.swing.JButton();
         lblSessionManagement = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lblPatientID = new javax.swing.JLabel();
         txtPatientID = new javax.swing.JTextField();
-        lblTreatment = new javax.swing.JLabel();
-        txtTreatment = new javax.swing.JTextField();
-        txtSessionNotes = new javax.swing.JTextField();
-        lblSessionNotes = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
+        lblSummary = new javax.swing.JLabel();
+        txtSummary = new javax.swing.JTextField();
+        txtNurseComments = new javax.swing.JTextField();
+        lblNurseComments = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
+        btnSave.setBackground(new java.awt.Color(204, 255, 255));
+        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(0, 102, 102));
+        btnSave.setText("Save");
+
         lblSessionManagement.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lblSessionManagement.setForeground(new java.awt.Color(255, 255, 255));
         lblSessionManagement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSessionManagement.setText("Update Session Information");
+        lblSessionManagement.setText("Update Progress Report");
 
         lblName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 255, 255));
@@ -55,20 +60,15 @@ public class UpdateJPanel extends javax.swing.JPanel {
         lblPatientID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPatientID.setText("Patient ID:");
 
-        lblTreatment.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblTreatment.setForeground(new java.awt.Color(255, 255, 255));
-        lblTreatment.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTreatment.setText("Treatment:");
+        lblSummary.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblSummary.setForeground(new java.awt.Color(255, 255, 255));
+        lblSummary.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSummary.setText("Summary:");
 
-        lblSessionNotes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblSessionNotes.setForeground(new java.awt.Color(255, 255, 255));
-        lblSessionNotes.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblSessionNotes.setText("Session Notes:");
-
-        btnSave.setBackground(new java.awt.Color(204, 255, 255));
-        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSave.setForeground(new java.awt.Color(0, 102, 102));
-        btnSave.setText("Save");
+        lblNurseComments.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblNurseComments.setForeground(new java.awt.Color(255, 255, 255));
+        lblNurseComments.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNurseComments.setText("Nurse Comments:");
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -90,18 +90,18 @@ public class UpdateJPanel extends javax.swing.JPanel {
                             .addComponent(btnSave)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSummary, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblSessionNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblNurseComments, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtSessionNotes, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTreatment, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNurseComments, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtSummary, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPatientID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(17, 17, 17)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(523, Short.MAX_VALUE))
         );
@@ -120,17 +120,17 @@ public class UpdateJPanel extends javax.swing.JPanel {
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTreatment)
-                    .addComponent(txtTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblSummary)
+                    .addComponent(txtSummary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblSessionNotes)
-                    .addComponent(txtSessionNotes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNurseComments)
+                    .addComponent(txtNurseComments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(btnSave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 491, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 497, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(16, 16, 16))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -139,13 +139,13 @@ public class UpdateJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblNurseComments;
     private javax.swing.JLabel lblPatientID;
     private javax.swing.JLabel lblSessionManagement;
-    private javax.swing.JLabel lblSessionNotes;
-    private javax.swing.JLabel lblTreatment;
+    private javax.swing.JLabel lblSummary;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtNurseComments;
     private javax.swing.JTextField txtPatientID;
-    private javax.swing.JTextField txtSessionNotes;
-    private javax.swing.JTextField txtTreatment;
+    private javax.swing.JTextField txtSummary;
     // End of variables declaration//GEN-END:variables
 }
