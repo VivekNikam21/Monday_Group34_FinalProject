@@ -35,6 +35,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
         txtTreatment = new javax.swing.JTextField();
         txtSessionNotes = new javax.swing.JTextField();
         lblSessionNotes = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -63,6 +64,11 @@ public class UpdateJPanel extends javax.swing.JPanel {
         lblSessionNotes.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblSessionNotes.setText("Session Notes:");
 
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
+        btnBack.setText("B A C K");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,7 +90,10 @@ public class UpdateJPanel extends javax.swing.JPanel {
                             .addComponent(txtSessionNotes, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTreatment, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPatientID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtPatientID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(btnBack)))
                 .addContainerGap(523, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,12 +117,15 @@ public class UpdateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblSessionNotes)
                     .addComponent(txtSessionNotes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(636, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 575, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(29, 29, 29))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPatientID;
     private javax.swing.JLabel lblSessionManagement;

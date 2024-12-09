@@ -121,6 +121,10 @@ public class ConfigureABusiness {
         Therapist therapist4 = therapistdirectory.newTherapist("Dr. Lol "); 
         
         Therapist therapist5= therapistdirectory.newTherapist("Dr. Rofl "); 
+        Therapist therapist6 = therapistdirectory.newTherapist("Dr. Renuka"); 
+        
+        Therapist therapist7 = therapistdirectory.newTherapist("Dr. Reva"); 
+        Therapist therapist8 = therapistdirectory.newTherapist("Dr. Neha"); 
         return business;
     }
 }
