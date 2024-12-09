@@ -42,6 +42,11 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
         btnMedication.setForeground(new java.awt.Color(0, 102, 102));
         btnMedication.setText("Medication Details");
         btnMedication.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnMedication.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMedicationActionPerformed(evt);
+            }
+        });
 
         btnProgress.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnProgress.setForeground(new java.awt.Color(0, 102, 102));
@@ -83,6 +88,13 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
                 .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMedicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicationActionPerformed
+        // TODO add your handling code here:
+        MedicationDetailsJPanel mdjp = new MedicationDetailsJPanel(business, WorkArea);
+        WorkArea.add("MedicationDetails", mdjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnMedicationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

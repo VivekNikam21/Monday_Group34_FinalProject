@@ -20,7 +20,7 @@ public class TherapistDirectory {
     
      public TherapistProfile addTherapistProfile(Person p){
          
-         TherapistProfile tp = new TherapistProfile();
+         TherapistProfile tp = new TherapistProfile(p);
          therapistlist.add(tp);
          return tp;
      }

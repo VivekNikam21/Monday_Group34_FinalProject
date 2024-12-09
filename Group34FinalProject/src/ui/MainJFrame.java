@@ -4,6 +4,33 @@
  */
 package ui;
 
+<<<<<<< HEAD
+=======
+
+import model.Business;
+import model.ClinicManagement.NurseProfile;
+import model.ClinicManagement.TherapistProfile;
+import model.InnovationManagement.ResearcherProfile;
+import model.InnovationManagement.SpecialistProfile;
+import model.InsuranceManagement.AgentProfile;
+import model.InsuranceManagement.ProcessorProfile;
+import model.Personnel.Profile;
+import model.PreHealthcareManagement.CoachProfile;
+import model.PreHealthcareManagement.EducatorProfile;
+import model.PreHealthcareManagement.NutritionistProfile;
+import model.UserAccountManagement.UserAccount;
+import model.UserAccountManagement.UserAccountDirectory;
+import ui.Agent.AgentWorkAreaJPanel;
+import ui.Coach.CoachWorkAreaJPanel;
+import ui.Educator.EducatorWorkAreaJPanel;
+import ui.Nurse.NurseWorkAreaJpanel;  
+import ui.Nutritionist.NutritionistWorkAreaJPanel;
+import ui.Processor.ProcessorWorkAreaJPanel;
+import ui.Researcher.ResearcherWorkAreaJPanel;
+import ui.Specialist.SpecialistWorkAreaJPanel;
+import ui.Therapist.TherapistWorkAreaJPanel;
+
+>>>>>>> 873e946a1c48cb7d74428bc01626198d1f1f284a
 /**
  *
  * @author Dell
@@ -115,6 +142,121 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
+=======
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        String un = txtUser.getText();
+        String pw = txtPassword.getText();
+
+        UserAccountDirectory uad = business.getUserAccountDirectory();
+        UserAccount useraccount = uad.AuthenticateUser(un, pw);
+        Profile profile = useraccount.getAssociatedPersonProfile();
+        if (useraccount == null) {
+            return;
+        }
+        NurseWorkAreaJpanel nurseworkarea;
+
+        if (profile instanceof NurseProfile) {
+
+            NurseProfile np = (NurseProfile) profile;
+            nurseworkarea = new NurseWorkAreaJpanel(business, np, userProcessContainer);
+           userProcessContainer.removeAll();
+            userProcessContainer.add("Nurse", nurseworkarea);
+            ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
+
+        }
+        
+        TherapistWorkAreaJPanel therapistworkarea;
+        if (profile instanceof TherapistProfile) {
+
+            TherapistProfile tp = (TherapistProfile) profile;
+            therapistworkarea = new TherapistWorkAreaJPanel (business, tp, userProcessContainer);
+            userProcessContainer.removeAll();
+            userProcessContainer.add("Therapist", therapistworkarea);
+            ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
+
+        }
+        
+        ResearcherWorkAreaJPanel researcherworkarea;
+        if (profile instanceof ResearcherProfile) {
+
+            ResearcherProfile rp = (ResearcherProfile) profile;
+            researcherworkarea = new ResearcherWorkAreaJPanel(business, rp, userProcessContainer);
+            userProcessContainer.removeAll();
+            userProcessContainer.add("Researcher", researcherworkarea);
+            ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
+
+        }
+        
+        SpecialistWorkAreaJPanel specialistworkarea;
+        if (profile instanceof SpecialistProfile) {
+
+            SpecialistProfile sp = (SpecialistProfile) profile;
+            specialistworkarea = new SpecialistWorkAreaJPanel(business, sp, userProcessContainer);
+            userProcessContainer.removeAll();
+            userProcessContainer.add("Specialist", specialistworkarea);
+            ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
+
+        }
+        
+        AgentWorkAreaJPanel agentworkarea;
+        if (profile instanceof AgentProfile) {
+
+            AgentProfile ap = (AgentProfile) profile;
+            agentworkarea = new AgentWorkAreaJPanel(business, ap, userProcessContainer);
+            userProcessContainer.removeAll();
+            userProcessContainer.add("Agent", agentworkarea);
+            ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
+
+        }
+        
+        ProcessorWorkAreaJPanel processorworkarea;
+        if (profile instanceof ProcessorProfile) {
+
+            ProcessorProfile pp = (ProcessorProfile) profile;
+            processorworkarea = new ProcessorWorkAreaJPanel(business, pp, userProcessContainer);
+            userProcessContainer.removeAll();
+            userProcessContainer.add("Processor", processorworkarea);
+            ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
+
+        }
+        
+        CoachWorkAreaJPanel coachworkarea;
+        if (profile instanceof CoachProfile) {
+
+            CoachProfile cp = (CoachProfile) profile;
+            coachworkarea = new CoachWorkAreaJPanel(business, cp, userProcessContainer);
+            userProcessContainer.removeAll();
+            userProcessContainer.add("Coach", coachworkarea);
+            ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
+
+        }
+        
+        EducatorWorkAreaJPanel educatorworkarea;
+        if (profile instanceof EducatorProfile) {
+
+            EducatorProfile ep = (EducatorProfile) profile;
+            educatorworkarea = new EducatorWorkAreaJPanel(business, ep, userProcessContainer);
+            userProcessContainer.removeAll();
+            userProcessContainer.add("Educator", educatorworkarea);
+            ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
+
+        }
+        
+        NutritionistWorkAreaJPanel nutritionistworkarea;
+        if (profile instanceof NutritionistProfile) {
+
+            NutritionistProfile np = (NutritionistProfile) profile;
+            nutritionistworkarea = new NutritionistWorkAreaJPanel(business, np, userProcessContainer);
+            userProcessContainer.removeAll();
+            userProcessContainer.add("Nutritionist", nutritionistworkarea);
+            ((java.awt.CardLayout) userProcessContainer.getLayout()).next(userProcessContainer);
+
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+>>>>>>> 873e946a1c48cb7d74428bc01626198d1f1f284a
     /**
      * @param args the command line arguments
      */

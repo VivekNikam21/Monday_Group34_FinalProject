@@ -4,16 +4,26 @@
  */
 package ui.Specialist;
 
+import javax.swing.JPanel;
+import model.Business;
+import model.ClinicManagement.TherapistProfile;
+import model.InnovationManagement.SpecialistProfile;
+
 /**
  *
  * @author Dell
  */
 public class SpecialistWorkAreaJPanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
+    SpecialistProfile specialist;
     /**
      * Creates new form SpecialistWorkAreaJPanel
      */
-    public SpecialistWorkAreaJPanel() {
+    public SpecialistWorkAreaJPanel(Business b, SpecialistProfile sp, JPanel sjp) {
+        business = b;
+        this.WorkArea = sjp;
+        specialist = sp;
         initComponents();
     }
 

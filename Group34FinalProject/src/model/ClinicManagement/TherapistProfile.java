@@ -4,10 +4,20 @@
  */
 package model.ClinicManagement;
 
+import model.Personnel.Person;
+import model.Personnel.Profile;
+
 /**
  *
  * @author nikam
  */
-public class TherapistProfile {
+public class TherapistProfile extends Profile {
+    public TherapistProfile (Person p){
+        super(p);
+    }
     
+    @Override
+    public String getRole() {
+        return "Therapist"; // Implements the abstract method
+    }
 }
