@@ -23,25 +23,25 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       <Component id="lblSessionManagement" min="-2" pref="1302" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="448" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
+                          <Component id="btnSave" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblTreatment" alignment="1" min="-2" pref="88" max="-2" attributes="0"/>
+                                  <Component id="lblSummary" alignment="1" min="-2" pref="88" max="-2" attributes="0"/>
                                   <Component id="lblName" alignment="1" min="-2" pref="88" max="-2" attributes="0"/>
                                   <Component id="lblPatientID" alignment="1" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <Component id="lblSessionNotes" min="-2" pref="122" max="-2" attributes="0"/>
+                                  <Component id="lblNurseComments" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="txtSessionNotes" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtTreatment" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNurseComments" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtSummary" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtName" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtPatientID" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
                               </Group>
@@ -49,7 +49,7 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Component id="btnBack" min="-2" pref="155" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -74,24 +74,38 @@
               </Group>
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTreatment" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTreatment" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSummary" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSummary" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lblSessionNotes" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtSessionNotes" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNurseComments" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNurseComments" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="491" max="32767" attributes="0"/>
+              <EmptySpace pref="497" max="32767" attributes="0"/>
               <Component id="btnBack" min="-2" pref="57" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JButton" name="btnSave">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="cc" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Save"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JLabel" name="lblSessionManagement">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -101,7 +115,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Update Session Information"/>
+        <Property name="text" type="java.lang.String" value="Update Progress Report"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblName">
@@ -132,7 +146,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtPatientID">
     </Component>
-    <Component class="javax.swing.JLabel" name="lblTreatment">
+    <Component class="javax.swing.JLabel" name="lblSummary">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -141,14 +155,14 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Treatment:"/>
+        <Property name="text" type="java.lang.String" value="Summary:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTreatment">
+    <Component class="javax.swing.JTextField" name="txtSummary">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSessionNotes">
+    <Component class="javax.swing.JTextField" name="txtNurseComments">
     </Component>
-    <Component class="javax.swing.JLabel" name="lblSessionNotes">
+    <Component class="javax.swing.JLabel" name="lblNurseComments">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -157,21 +171,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Session Notes:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnSave">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="cc" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="0" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Save"/>
+        <Property name="text" type="java.lang.String" value="Nurse Comments:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
