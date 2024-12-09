@@ -6,6 +6,9 @@ package ui;
 
 
 import model.Business;
+import ui.Processor.ProcessorWorkAreaJPanel;
+import ui.Researcher.ResearcherWorkAreaJPanel;
+import ui.Specialist.SpecialistWorkAreaJPanel;
 import model.ClinicManagement.NurseProfile;
 import model.ClinicManagement.TherapistProfile;
 import model.InnovationManagement.ResearcherProfile;
@@ -23,11 +26,8 @@ import ui.Coach.CoachWorkAreaJPanel;
 import ui.Educator.EducatorWorkAreaJPanel;
 import ui.Nurse.NurseWorkAreaJpanel;  
 import ui.Nutritionist.NutritionistWorkAreaJPanel;
-import ui.Processor.ProcessorWorkAreaJPanel;
-import ui.Researcher.ResearcherWorkAreaJPanel;
-import ui.Specialist.SpecialistWorkAreaJPanel;
 import ui.Therapist.TherapistWorkAreaJpanel;
-
+/*correct ui
 /**
  *
  * @author Dell
