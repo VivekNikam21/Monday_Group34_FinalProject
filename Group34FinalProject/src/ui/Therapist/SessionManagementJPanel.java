@@ -4,16 +4,22 @@
  */
 package ui.Therapist;
 
+import javax.swing.JPanel;
+import model.Business;
+
 /**
  *
  * @author Dell
  */
 public class SessionManagementJPanel extends javax.swing.JPanel {
-
+    JPanel WorkArea;
+    Business business;
     /**
      * Creates new form SessionManagementJPanel
      */
-    public SessionManagementJPanel() {
+    public SessionManagementJPanel(Business bu, JPanel jp) {
+        WorkArea = jp;
+        this.business = bu;
         initComponents();
     }
 

@@ -33,6 +33,9 @@ public class HealthProgressJPanel extends javax.swing.JPanel {
         tblClaims = new javax.swing.JTable();
         btnView = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 102, 102));
+
+        lblProcess.setBackground(new java.awt.Color(0, 102, 102));
         lblProcess.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lblProcess.setForeground(new java.awt.Color(255, 255, 255));
         lblProcess.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

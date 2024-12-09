@@ -51,6 +51,11 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
         btnProgress.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnProgress.setForeground(new java.awt.Color(0, 102, 102));
         btnProgress.setText("Progress Report ");
+        btnProgress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProgressActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -95,6 +100,13 @@ public class NurseWorkAreaJpanel extends javax.swing.JPanel {
         WorkArea.add("MedicationDetails", mdjp);
         ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
     }//GEN-LAST:event_btnMedicationActionPerformed
+
+    private void btnProgressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProgressActionPerformed
+        // TODO add your handling code here:
+        ProgressReportJPanel prjp = new ProgressReportJPanel(business, WorkArea);
+        WorkArea.add("ProgressReport", prjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnProgressActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
