@@ -84,6 +84,9 @@
           <Dimension value="[280, 50]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPatientRecordsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSessionManagement">
       <Properties>
@@ -95,6 +98,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Session Management"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSessionManagementActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>

@@ -4,16 +4,40 @@
  */
 package ui.Therapist;
 
+<<<<<<< HEAD
+=======
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import model.Business;
+import model.ClinicManagement.NurseProfile;
+import model.ClinicManagement.TherapistProfile;
+import ui.Nurse.MedicationDetailsJPanel;
+
+>>>>>>> c0b6be24fb6f458208abebfcd6761c97a7d3288b
 /**
  *
  * @author Dell
  */
 public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
+<<<<<<< HEAD
 
     /**
      * Creates new form TherapistWorkAreaJpanel
      */
     public TherapistWorkAreaJpanel() {
+=======
+    
+    JPanel WorkArea;
+    Business business;
+    TherapistProfile therapist;
+    /**
+     * Creates new form TherapistWorkAreaJpanel
+     */
+    public TherapistWorkAreaJpanel(Business b, TherapistProfile tp, JPanel tjp) {
+        business = b;
+        this.WorkArea = tjp;
+        therapist = tp;
+>>>>>>> c0b6be24fb6f458208abebfcd6761c97a7d3288b
         initComponents();
     }
 
@@ -42,10 +66,20 @@ public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
         btnPatientRecords.setForeground(new java.awt.Color(0, 102, 102));
         btnPatientRecords.setText("Patient Records");
         btnPatientRecords.setMaximumSize(new java.awt.Dimension(280, 50));
+        btnPatientRecords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPatientRecordsActionPerformed(evt);
+            }
+        });
 
         btnSessionManagement.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnSessionManagement.setForeground(new java.awt.Color(0, 102, 102));
         btnSessionManagement.setText("Session Management");
+        btnSessionManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSessionManagementActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -92,7 +126,24 @@ public class TherapistWorkAreaJpanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnPatientRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientRecordsActionPerformed
+        // TODO add your handling code here:
+        PatientRecordsJPanel prjp = new PatientRecordsJPanel(business, WorkArea);
+        WorkArea.add("PatientRecords", prjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnPatientRecordsActionPerformed
+
+    private void btnSessionManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSessionManagementActionPerformed
+        // TODO add your handling code here:
+        SessionManagementJPanel smjp = new SessionManagementJPanel(business, WorkArea);
+        WorkArea.add("SessionManagement", smjp);
+        ((java.awt.CardLayout) WorkArea.getLayout()).next(WorkArea);
+    }//GEN-LAST:event_btnSessionManagementActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
